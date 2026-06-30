@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import CrashOutLogo from './CrashOutLogo';
+import PartnerLogos from './PartnerLogos';
 
 export default function Layout({ children, bare = false }) {
   if (bare) return <main>{children}</main>;
@@ -7,7 +9,7 @@ export default function Layout({ children, bare = false }) {
     <>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Crash Out home">
-          <span>Crash Out</span>
+          <CrashOutLogo compact />
         </Link>
         <nav aria-label="Primary navigation">
           <Link href="/events">Events</Link>
@@ -17,7 +19,7 @@ export default function Layout({ children, bare = false }) {
       </header>
       <main>{children}</main>
       <footer className="site-footer">
-        <p>State Presenting x Rafier Piare Production x Royal Speech of Art</p>
+        <PartnerLogos compact />
         <p>Making theatre anti-racist.</p>
       </footer>
     </>

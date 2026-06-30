@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title">
+  <title id="title">Crash Out logo</title>
+  <rect width="640" height="360" fill="#fff2a8"/>
+  <g fill="#050505">
+    <text x="54" y="148" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="108" font-weight="900">CRASH</text>
+    <text x="54" y="250" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="108" font-weight="900">OUT</text>
+    <rect x="48" y="166" width="380" height="12" transform="rotate(-7 48 166)"/>
+  </g>
+</svg>
