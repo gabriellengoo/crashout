@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+.env
+.env.local
+.env.*.local
+submissions/*.jsonl
+submissions/*.csv
+!submissions/.gitkeep
+npm-debug.log*
