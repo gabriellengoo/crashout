@@ -138,6 +138,7 @@ export default function SurveyPage() {
           <div
             className={[
               'question-frame',
+              currentSlide.type === 'fact' ? 'fact-frame' : '',
               `motion-${questionMotionDirection}`,
               questionContentMasked ? 'question-content-masked' : '',
               questionContentRevealing ? 'question-content-revealing' : ''

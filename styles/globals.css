@@ -269,6 +269,14 @@ button:disabled {
   line-height: 1.14;
 }
 
+.choice-panel .crash-logo span {
+  font-size: clamp(52px, min(11vw, 17dvh), 156px);
+}
+
+.choice-panel .crash-logo i {
+  height: clamp(5px, min(0.9vw, 1.4dvh), 13px);
+}
+
 .choice-link {
   position: relative;
   z-index: 1;
@@ -338,12 +346,8 @@ button:disabled {
   text-transform: uppercase;
 }
 
-.site-logo-hero p {
-  max-width: 760px;
-  margin: 0;
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
+.site-logo-hero .partner-strip.compact {
+  width: min(560px, 86vw);
 }
 
 .intro-band {
@@ -929,6 +933,12 @@ textarea {
   transition: opacity 0.65s ease;
 }
 
+.question-frame.fact-frame {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+}
+
 .question-content-masked {
   opacity: 0;
 }
@@ -950,6 +960,8 @@ textarea {
 
 .fact-slide {
   min-height: calc(100dvh - clamp(160px, 25dvh, 230px));
+  width: min(1040px, 100%);
+  margin: 0 auto;
   display: grid;
   align-content: center;
   justify-items: center;
@@ -1151,6 +1163,10 @@ textarea {
 
   .choice-panel h1 {
     font-size: clamp(29px, min(10vw, 7dvh), 52px);
+  }
+
+  .choice-panel .crash-logo span {
+    font-size: clamp(52px, min(22vw, 11dvh), 100px);
   }
 
   .choice-panel p:not(.eyebrow):not(.hero-subtitle) {

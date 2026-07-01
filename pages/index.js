@@ -79,9 +79,7 @@ export default function Home() {
         <div>
           <CrashOutLogo />
           <h1 id="site-title">Making theatre anti-racist</h1>
-          <p>
-            State Presenting x Rafier Piare Production x Royal Speech of Art
-          </p>
+          <PartnerLogos compact />
         </div>
       </section>
 
