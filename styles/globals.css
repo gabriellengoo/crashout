@@ -187,10 +187,10 @@ button:disabled {
 .mobile-menu a {
   display: block;
   border-top: 1px solid var(--black);
-  padding: 22px 0;
-  font-size: clamp(38px, 13vw, 74px);
+  padding: 18px 0;
+  font-size: clamp(26px, 8vw, 42px);
   font-weight: 950;
-  line-height: 0.92;
+  line-height: 0.96;
   text-transform: uppercase;
 }
 
