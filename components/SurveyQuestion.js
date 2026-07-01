@@ -26,6 +26,7 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
             type={screen.type}
             value={value || ''}
             placeholder={screen.placeholder || ''}
+            onInput={(event) => onChange(event.currentTarget.value)}
             onChange={(event) => onChange(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === 'Enter') onEnter();
@@ -39,6 +40,7 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
             id={fieldId}
             value={value || ''}
             placeholder={screen.placeholder || ''}
+            onInput={(event) => onChange(event.currentTarget.value)}
             onChange={(event) => onChange(event.target.value)}
             rows={5}
             aria-describedby={error ? `${screen.id}-error` : undefined}
@@ -49,6 +51,7 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
           <select
             id={fieldId}
             value={value || ''}
+            onInput={(event) => onChange(event.currentTarget.value)}
             onChange={(event) => onChange(event.target.value)}
             aria-describedby={error ? `${screen.id}-error` : undefined}
           >

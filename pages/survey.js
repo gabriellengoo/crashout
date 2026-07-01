@@ -32,6 +32,21 @@ export default function SurveyPage() {
     setErrors((current) => ({ ...current, [id]: '' }));
   }
 
+  function syncCurrentField() {
+    if (!currentSlide || currentSlide.type === 'fact') return formData;
+
+    const field = document.getElementById(`field-${currentSlide.id}`);
+    if (!field) return formData;
+
+    let value = formData[currentSlide.id];
+    if (currentSlide.type === 'consent') value = field.checked;
+    if (['text', 'email', 'textarea', 'select'].includes(currentSlide.type)) value = field.value;
+
+    const nextFormData = { ...formData, [currentSlide.id]: value };
+    setFormData(nextFormData);
+    return nextFormData;
+  }
+
   function moveToStep(nextStep, direction) {
     setQuestionMotionDirection(direction);
     setErrors({});
@@ -91,8 +106,10 @@ export default function SurveyPage() {
   }
 
   function handleNext() {
+    const nextFormData = syncCurrentField();
+
     if (currentSlide.type !== 'fact') {
-      const message = validateAnswer(currentSlide, formData[currentSlide.id]);
+      const message = validateAnswer(currentSlide, nextFormData[currentSlide.id]);
       if (message) {
         setErrors({ [currentSlide.id]: message });
         return;

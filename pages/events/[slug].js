@@ -40,8 +40,13 @@ export default function EventPage({ event }) {
           <div className="split">
             <h2>Venue</h2>
             <div>
+              <p className="eyebrow">{event.displayDate} / {event.time}</p>
               <p className="large-copy">{event.venue}</p>
-              <p>{event.address}</p>
+              <p>
+                <a className="text-link venue-link" href={event.mapUrl} target="_blank" rel="noreferrer">
+                  {event.address}
+                </a>
+              </p>
             </div>
           </div>
         </section>

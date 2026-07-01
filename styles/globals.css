@@ -10,6 +10,7 @@
   --cyan: #2aaeb7;
   --red: #e30613;
   --butter: #fff2a8;
+  --hot-pink: #ff1493;
   --max: 1180px;
 }
 
@@ -218,7 +219,12 @@ button:disabled {
   justify-content: space-between;
   gap: 40px;
   padding: clamp(30px, 6vw, 76px);
+  border: 0;
+  border-radius: 0;
   overflow: hidden;
+  background: var(--white);
+  color: var(--black);
+  text-align: left;
   transition: background 0.22s ease, color 0.22s ease;
 }
 
@@ -235,12 +241,12 @@ button:disabled {
 }
 
 .survey-choice {
-  background: var(--butter);
+  background: var(--white);
   border-right: 1px solid var(--black);
 }
 
 .site-choice {
-  background: var(--soft);
+  background: var(--white);
 }
 
 .choice-panel:hover,
@@ -251,7 +257,7 @@ button:disabled {
 .choice-panel h1 {
   max-width: 690px;
   margin: 0;
-  font-size: clamp(44px, 7.5vw, 112px);
+  font-size: clamp(38px, min(7.2vw, 12dvh), 112px);
   line-height: 0.9;
   text-transform: uppercase;
 }
@@ -259,7 +265,7 @@ button:disabled {
 .choice-panel p:not(.eyebrow):not(.hero-subtitle) {
   max-width: 540px;
   margin: 24px 0 0;
-  font-size: clamp(18px, 2vw, 26px);
+  font-size: clamp(15px, min(1.8vw, 3dvh), 26px);
   line-height: 1.14;
 }
 
@@ -558,7 +564,7 @@ button:disabled {
 }
 
 section.content-band.event-programme {
-  background: var(--white);
+  background: #eadbff;
 }
 
 section.content-band.event-venue {
@@ -634,6 +640,18 @@ section.content-band.event-rsvp {
   margin: 0;
   padding: 22px;
   background: var(--white);
+}
+
+.event-card-cyan {
+  background: #d8f8fb;
+}
+
+.event-card-pink {
+  background: #ffd8e9;
+}
+
+.event-card-yellow {
+  background: var(--butter);
 }
 
 .audience-grid p {
@@ -812,6 +830,10 @@ section.content-band.event-rsvp {
   gap: 18px;
 }
 
+.rsvp-form .button.dark {
+  border: 0;
+}
+
 .rsvp-form label {
   display: grid;
   gap: 8px;
@@ -870,7 +892,7 @@ textarea {
 
 .progress-fill {
   height: 100%;
-  background: var(--black);
+  background: var(--hot-pink);
   transition: width 0.3s ease;
 }
 
@@ -924,6 +946,23 @@ textarea {
   font-size: clamp(25px, min(5.4vw, 8.6dvh), 76px);
   line-height: 0.98;
   text-transform: uppercase;
+}
+
+.fact-slide {
+  min-height: calc(100dvh - clamp(160px, 25dvh, 230px));
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.fact-slide h1 {
+  font-size: clamp(38px, min(9vw, 13dvh), 120px);
+}
+
+.fact-slide .question-description.large {
+  max-width: min(920px, 100%);
+  font-size: clamp(25px, min(4.6vw, 7dvh), 70px);
 }
 
 .question-heading-row {
@@ -1027,6 +1066,39 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+}
+
+.thank-you-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 22px;
+  padding: clamp(28px, 7vw, 96px);
+  overflow: hidden;
+  background: var(--butter);
+  color: var(--black);
+  text-align: center;
+}
+
+.thank-you-overlay .crash-logo span {
+  font-size: clamp(42px, 9vw, 126px);
+}
+
+.thank-you-overlay h1 {
+  max-width: 980px;
+  margin: 0;
+  font-size: clamp(34px, 7vw, 94px);
+  line-height: 0.93;
+  text-transform: uppercase;
+}
+
+.thank-you-overlay p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(16px, 2.2vw, 25px);
+  line-height: 1.15;
 }
 
 @keyframes revealQuestion {

@@ -7,6 +7,8 @@ export const events = [
     time: '10:30-17:00',
     venue: 'Royal Speech of Art',
     address: 'London, UK',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=London%2C%20UK',
+    theme: 'cyan',
     summary:
       'A day of testimony, research framing, sector challenge, and collective action around anti-racism in theatre.',
     description:
@@ -36,6 +38,8 @@ export const events = [
     time: '13:00-18:00',
     venue: 'Independent theatre venue',
     address: 'Manchester, UK',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Manchester%2C%20UK',
+    theme: 'pink',
     summary:
       'A quieter drop-in space for people who want time, privacy, and access support while completing the survey.',
     description:

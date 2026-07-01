@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import EventCard from '../components/EventCard';
 import CrashOutLogo from '../components/CrashOutLogo';
@@ -18,6 +19,7 @@ const audiences = [
 ];
 
 export default function Home() {
+  const router = useRouter();
   const [siteEntered, setSiteEntered] = useState(false);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export default function Home() {
     <Layout hideHeader={!siteEntered}>
       {!siteEntered ? (
       <section className="choice-landing" aria-labelledby="landing-title">
-        <div className="choice-panel survey-choice">
+        <button className="choice-panel survey-choice" type="button" onClick={() => router.push('/survey')}>
           <div>
             <p className="eyebrow">Start here</p>
             <h1 id="landing-title">Take the Crash Out survey</h1>
@@ -52,12 +54,12 @@ export default function Home() {
               sensitive questions.
             </p>
           </div>
-          <Link className="choice-link primary" href="/survey">
+          <span className="choice-link primary">
             Complete the survey
-          </Link>
-        </div>
+          </span>
+        </button>
 
-        <div className="choice-panel site-choice">
+        <button className="choice-panel site-choice" type="button" onClick={enterSite}>
           <div>
             <CrashOutLogo />
             <p className="hero-subtitle">Making theatre anti-racist</p>
@@ -66,10 +68,10 @@ export default function Home() {
               sector can be challenged with real data and clear demands.
             </p>
           </div>
-          <button className="choice-link secondary" type="button" onClick={enterSite}>
+          <span className="choice-link secondary">
             Go to the site
-          </button>
-        </div>
+          </span>
+        </button>
       </section>
       ) : null}
 

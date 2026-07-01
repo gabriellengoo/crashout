@@ -1,25 +1,35 @@
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
+import CrashOutLogo from '../components/CrashOutLogo';
 
 export default function ThankYou() {
+  const router = useRouter();
+
+  useEffect(() => {
+    document.body.classList.add('landing-locked');
+    const timer = window.setTimeout(() => router.push('/events'), 6500);
+
+    return () => {
+      document.body.classList.remove('landing-locked');
+      window.clearTimeout(timer);
+    };
+  }, [router]);
+
   return (
-    <Layout>
-      <section className="page-hero">
+    <Layout bare>
+      <section className="thank-you-overlay">
+        <CrashOutLogo />
         <p className="eyebrow">Survey submitted</p>
         <h1>Thank you for contributing to Crash Out.</h1>
-        <p>
-          Your response helps build a clearer evidence base for anti-racism in theatre. Identifying details will not be
-          shared publicly without permission.
-        </p>
-        <div className="button-row">
+        <p>Your response helps build a clearer evidence base for anti-racism in theatre. Redirecting to events.</p>
+        <div className="button-row center">
           <Link className="button dark" href="/events">
-            Return to Crash Out events
-          </Link>
-          <Link className="button outline-dark" href="/survey">
-            Share the survey
+            Go to events
           </Link>
           <Link className="button outline-dark" href="/">
-            Read more about the project
+            Return home
           </Link>
         </div>
       </section>
