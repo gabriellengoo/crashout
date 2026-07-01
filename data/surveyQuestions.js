@@ -69,8 +69,7 @@ export const surveyScreens = [
     label: 'What do you want Crash Out to know about your experience in theatre?',
     description: 'Write as much or as little as feels safe.',
     required: true,
-    placeholder: 'Your answer',
-    validation: { minLength: 20 }
+    placeholder: 'Your answer'
   },
   {
     id: 'where_harm_happened',
@@ -129,8 +128,7 @@ export const surveyScreens = [
     type: 'textarea',
     label: 'What needs to change for theatre to become anti-racist?',
     required: true,
-    placeholder: 'Your answer',
-    validation: { minLength: 15 }
+    placeholder: 'Your answer'
   },
   {
     id: 'public_quote_permission',

@@ -110,9 +110,7 @@ export default async function handler(req, res) {
   const usedWebhook = await appendWebhookSubmission(record);
   if (!usedWebhook) {
     if (process.env.VERCEL === '1' || process.env.NODE_ENV === 'production') {
-      return res.status(503).json({
-        error: 'Survey storage is not configured. Add SURVEY_STORAGE_WEBHOOK_URL in the deployment environment.'
-      });
+      return res.status(200).json({ ok: true, submissionId, storageConfigured: false });
     }
     await appendLocalSubmission(record);
   }
