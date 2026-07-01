@@ -25,7 +25,7 @@ export default function EventPage({ event }) {
           </div>
         </section>
 
-        <section className="content-band white">
+        <section className="content-band event-section event-programme">
           <div className="split">
             <h2>Programme</h2>
             <ul className="ruled-list">
@@ -36,7 +36,7 @@ export default function EventPage({ event }) {
           </div>
         </section>
 
-        <section className="content-band">
+        <section className="content-band event-section event-venue">
           <div className="split">
             <h2>Venue</h2>
             <div>
@@ -46,7 +46,7 @@ export default function EventPage({ event }) {
           </div>
         </section>
 
-        <section className="content-band white">
+        <section className="content-band event-section event-schedule">
           <div className="split">
             <h2>Schedule</h2>
             <ul className="schedule-list">
@@ -60,7 +60,7 @@ export default function EventPage({ event }) {
           </div>
         </section>
 
-        <section className="content-band" id="rsvp">
+        <section className="content-band event-section event-rsvp" id="rsvp">
           <div className="split">
             <h2>RSVP</h2>
             <RsvpForm eventTitle={event.title} />

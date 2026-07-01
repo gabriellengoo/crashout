@@ -13,7 +13,6 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
 
   return (
     <section className="question-screen" aria-labelledby={`${screen.id}-label`}>
-      <p className="survey-kicker">{screen.section}</p>
       <div className="question-heading-row">
         <h1 id={`${screen.id}-label`}>{screen.label}</h1>
         <span>{requiredText}</span>

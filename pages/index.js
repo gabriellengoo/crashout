@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import EventCard from '../components/EventCard';
 import CrashOutLogo from '../components/CrashOutLogo';
@@ -17,8 +18,30 @@ const audiences = [
 ];
 
 export default function Home() {
+  const [siteEntered, setSiteEntered] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash === '#site') {
+      window.setTimeout(() => setSiteEntered(true), 0);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle('landing-locked', !siteEntered);
+    return () => document.body.classList.remove('landing-locked');
+  }, [siteEntered]);
+
+  function enterSite() {
+    setSiteEntered(true);
+    window.history.replaceState(null, '', '#site');
+    window.setTimeout(() => {
+      document.getElementById('site')?.scrollIntoView({ block: 'start' });
+    }, 0);
+  }
+
   return (
-    <Layout>
+    <Layout hideHeader={!siteEntered}>
+      {!siteEntered ? (
       <section className="choice-landing" aria-labelledby="landing-title">
         <div className="choice-panel survey-choice">
           <div>
@@ -43,13 +66,24 @@ export default function Home() {
               sector can be challenged with real data and clear demands.
             </p>
           </div>
-          <a className="choice-link secondary" href="#site">
+          <button className="choice-link secondary" type="button" onClick={enterSite}>
             Go to the site
-          </a>
+          </button>
+        </div>
+      </section>
+      ) : null}
+
+      <section className="site-logo-hero" id="site" aria-labelledby="site-title">
+        <div>
+          <CrashOutLogo />
+          <h1 id="site-title">Making theatre anti-racist</h1>
+          <p>
+            State Presenting x Rafier Piare Production x Royal Speech of Art
+          </p>
         </div>
       </section>
 
-      <section className="intro-band" id="site">
+      <section className="intro-band">
         <div className="intro-copy">
           <p className="eyebrow">Crash Out</p>
           <h2>Your experience is evidence.</h2>

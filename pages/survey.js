@@ -17,6 +17,7 @@ export default function SurveyPage() {
   const [questionMotionDirection, setQuestionMotionDirection] = useState('forward');
   const [questionContentMasked, setQuestionContentMasked] = useState(false);
   const [questionContentRevealing, setQuestionContentRevealing] = useState(false);
+  const [questionContentBlank, setQuestionContentBlank] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const currentSlide = surveyScreens[currentStep];
@@ -37,16 +38,21 @@ export default function SurveyPage() {
 
     if (direction === 'forward') {
       setQuestionContentMasked(true);
+      setQuestionContentBlank(true);
       window.setTimeout(() => {
         setCurrentStep(nextStep);
-        setQuestionContentMasked(false);
-        setQuestionContentRevealing(true);
-        window.setTimeout(() => setQuestionContentRevealing(false), 650);
+        window.setTimeout(() => {
+          setQuestionContentBlank(false);
+          setQuestionContentMasked(false);
+          setQuestionContentRevealing(true);
+          window.setTimeout(() => setQuestionContentRevealing(false), 650);
+        }, 80);
       }, 140);
       return;
     }
 
     setCurrentStep(nextStep);
+    setQuestionContentBlank(false);
     setQuestionContentMasked(false);
     setQuestionContentRevealing(false);
   }
@@ -111,7 +117,7 @@ export default function SurveyPage() {
       <div className="survey-page">
         <ProgressBar current={currentStep + 1} total={surveyScreens.length} />
         <div className="survey-shell">
-          <p className="survey-brand">Crash Out / Making theatre anti-racist</p>
+          <p className="survey-brand">{currentSlide.section}</p>
           <div
             className={[
               'question-frame',
@@ -120,7 +126,7 @@ export default function SurveyPage() {
               questionContentRevealing ? 'question-content-revealing' : ''
             ].join(' ')}
           >
-            {currentSlide.type === 'fact' ? (
+            {questionContentBlank ? null : currentSlide.type === 'fact' ? (
               <FactSlide screen={currentSlide} />
             ) : (
               <SurveyQuestion

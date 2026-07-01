@@ -2,12 +2,12 @@ import Link from 'next/link';
 import CrashOutLogo from './CrashOutLogo';
 import PartnerLogos from './PartnerLogos';
 
-export default function Layout({ children, bare = false }) {
+export default function Layout({ children, bare = false, hideHeader = false }) {
   if (bare) return <main>{children}</main>;
 
   return (
     <>
-      <header className="site-header">
+      <header className={hideHeader ? 'site-header hidden-header' : 'site-header'}>
         <Link className="brand" href="/" aria-label="Crash Out home">
           <CrashOutLogo compact />
         </Link>
