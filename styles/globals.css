@@ -1061,6 +1061,21 @@ textarea {
 .fact-slide .question-description.large {
   max-width: min(920px, 100%);
   font-size: clamp(25px, min(4.6vw, 7dvh), 70px);
+  white-space: pre-line;
+}
+
+.fact-slide-statement {
+  width: min(1080px, 100%);
+}
+
+.fact-slide-statement h1 {
+  font-size: clamp(30px, min(6vw, 8dvh), 78px);
+}
+
+.fact-slide-statement .question-description.large {
+  max-width: min(960px, 100%);
+  font-size: clamp(13px, min(1.75vw, 2.2dvh), 20px);
+  line-height: 1.22;
 }
 
 .question-heading-row {
@@ -1121,6 +1136,37 @@ textarea {
 .choice.active {
   background: var(--black);
   color: var(--white);
+}
+
+.matrix-list {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.matrix-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 0.65fr);
+  gap: 14px;
+  align-items: center;
+  background: var(--white);
+  padding: clamp(7px, 1.2dvh, 10px) 12px;
+}
+
+.matrix-row span {
+  font-size: clamp(10px, min(1.45vw, 1.55dvh), 12px);
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.matrix-row select {
+  border: 1px solid var(--line);
+  padding: 7px 8px;
+  font-size: clamp(10px, min(1.45vw, 1.55dvh), 12px);
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .consent-row {
@@ -1420,6 +1466,16 @@ textarea {
     min-height: clamp(34px, 6.1dvh, 50px);
   }
 
+  .matrix-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 6px 8px;
+  }
+
+  .matrix-row select {
+    padding: 6px 7px;
+  }
+
   input,
   textarea,
   select {
@@ -1512,6 +1568,20 @@ textarea {
     padding: 6px 8px;
     font-size: 8.5px;
     line-height: 1.05;
+  }
+
+  .matrix-row {
+    gap: 3px;
+    padding: 4px 6px;
+  }
+
+  .matrix-row span,
+  .matrix-row select {
+    font-size: 8.5px;
+  }
+
+  .matrix-row select {
+    padding: 4px 5px;
   }
 
   .consent-row {

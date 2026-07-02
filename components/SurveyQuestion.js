@@ -11,6 +11,11 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
     onChange([...current, option]);
   }
 
+  function setMatrixValue(row, answer) {
+    const current = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    onChange({ ...current, [row]: answer });
+  }
+
   return (
     <section className="question-screen" aria-labelledby={`${screen.id}-label`}>
       <div className="question-heading-row">
@@ -92,6 +97,28 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
               >
                 {option}
               </button>
+            ))}
+          </div>
+        ) : null}
+
+        {screen.type === 'matrix' ? (
+          <div className="matrix-list" aria-describedby={error ? `${screen.id}-error` : undefined}>
+            {screen.rows.map((row) => (
+              <label className="matrix-row" key={row}>
+                <span>{row}</span>
+                <select
+                  value={value?.[row] || ''}
+                  onChange={(event) => setMatrixValue(row, event.target.value)}
+                  aria-label={`${screen.label} ${row}`}
+                >
+                  <option value="">Select</option>
+                  {screen.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
             ))}
           </div>
         ) : null}
