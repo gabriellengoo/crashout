@@ -1,6 +1,7 @@
 export default function SurveyQuestion({ screen, value, onChange, error, onEnter }) {
   const requiredText = screen.required ? 'Required' : 'Optional';
   const fieldId = `field-${screen.id}`;
+  const isCompact = Array.isArray(screen.options) && screen.options.length >= 10;
 
   function toggleOption(option) {
     const current = Array.isArray(value) ? value : [];
@@ -17,7 +18,7 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
   }
 
   return (
-    <section className="question-screen" aria-labelledby={`${screen.id}-label`}>
+    <section className={isCompact ? 'question-screen compact-question' : 'question-screen'} aria-labelledby={`${screen.id}-label`}>
       <div className="question-heading-row">
         <h1 id={`${screen.id}-label`}>{screen.label}</h1>
         <span>{requiredText}</span>
