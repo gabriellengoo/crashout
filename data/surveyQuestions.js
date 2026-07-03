@@ -569,7 +569,14 @@ export const surveyScreens = [
       'An external mediator',
       'A trusted peer'
     ],
-    options: ['Very uncomfortable', 'Uncomfortable', 'Neutral', 'Comfortable', 'Very comfortable', 'Not applicable']
+    options: [
+      { short: 'VU', label: 'Very uncomfortable', value: 'Very uncomfortable' },
+      { short: 'U', label: 'Uncomfortable', value: 'Uncomfortable' },
+      { short: 'N', label: 'Neutral', value: 'Neutral' },
+      { short: 'C', label: 'Comfortable', value: 'Comfortable' },
+      { short: 'VC', label: 'Very comfortable', value: 'Very comfortable' },
+      { short: 'N/A', label: 'Not applicable', value: 'Not applicable' }
+    ]
   },
   {
     id: 'raised_issue_outcomes',

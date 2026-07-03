@@ -1156,6 +1156,16 @@ textarea {
   line-height: 1.03;
 }
 
+.matrix-question h1 {
+  max-width: 900px;
+  font-size: clamp(18px, min(2.4vw, 3.5dvh), 34px);
+  line-height: 1.02;
+}
+
+.matrix-question .field-zone {
+  margin-top: clamp(8px, min(1.4vw, 1.8dvh), 16px);
+}
+
 .choice.active {
   background: var(--black);
   color: var(--white);
@@ -1168,28 +1178,66 @@ textarea {
   background: var(--line);
 }
 
+.matrix-key {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.matrix-key span {
+  display: grid;
+  gap: 2px;
+  align-content: start;
+  background: var(--soft-yellow);
+  padding: 6px;
+  font-size: clamp(7px, min(0.7vw, 0.9dvh), 9px);
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.matrix-key strong {
+  font-size: clamp(10px, min(1vw, 1.25dvh), 13px);
+}
+
 .matrix-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(190px, 0.65fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.9fr);
+  gap: 8px;
   align-items: center;
   background: var(--white);
-  padding: clamp(7px, 1.2dvh, 10px) 12px;
+  padding: clamp(4px, 0.75dvh, 7px) 8px;
 }
 
 .matrix-row span {
-  font-size: clamp(10px, min(1.45vw, 1.55dvh), 12px);
+  font-size: clamp(8px, min(0.95vw, 1.1dvh), 10px);
   font-weight: 800;
   line-height: 1.1;
   text-transform: uppercase;
 }
 
-.matrix-row select {
-  border: 1px solid var(--line);
-  padding: 7px 8px;
-  font-size: clamp(10px, min(1.45vw, 1.55dvh), 12px);
+.matrix-options {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.matrix-choice {
+  min-height: clamp(22px, 3.4dvh, 30px);
+  border: 0;
+  border-radius: 0;
+  background: var(--white);
+  padding: 4px 2px;
+  color: var(--black);
+  font-size: clamp(8px, min(0.85vw, 1.05dvh), 10px);
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.matrix-choice.active {
+  background: var(--black);
+  color: var(--white);
 }
 
 .consent-row {
@@ -1518,14 +1566,39 @@ textarea {
     line-height: 1.02;
   }
 
-  .matrix-row {
-    grid-template-columns: 1fr;
-    gap: 5px;
-    padding: 6px 8px;
+  .matrix-question h1 {
+    font-size: clamp(14px, 4.2vw, 20px);
+    line-height: 0.98;
   }
 
-  .matrix-row select {
-    padding: 6px 7px;
+  .matrix-question .field-zone {
+    margin-top: 6px;
+  }
+
+  .matrix-row {
+    grid-template-columns: minmax(0, 1fr) minmax(156px, 0.95fr);
+    gap: 5px;
+    padding: 4px 5px;
+  }
+
+  .matrix-key span {
+    padding: 4px 3px;
+    font-size: clamp(5.5px, 1.55vw, 7px);
+  }
+
+  .matrix-key strong {
+    font-size: clamp(8px, 2vw, 10px);
+  }
+
+  .matrix-row span {
+    font-size: clamp(6.8px, 1.9vw, 8.5px);
+    line-height: 1.02;
+  }
+
+  .matrix-choice {
+    min-height: 21px;
+    padding: 2px 1px;
+    font-size: clamp(7px, 1.85vw, 8px);
   }
 
   input,
@@ -1632,18 +1705,31 @@ textarea {
     line-height: 1;
   }
 
+  .matrix-question h1 {
+    font-size: 13px;
+  }
+
   .matrix-row {
     gap: 3px;
-    padding: 4px 6px;
+    padding: 3px 4px;
   }
 
-  .matrix-row span,
-  .matrix-row select {
-    font-size: 8.5px;
+  .matrix-key span {
+    padding: 3px 2px;
+    font-size: 5.5px;
   }
 
-  .matrix-row select {
-    padding: 4px 5px;
+  .matrix-key strong,
+  .matrix-choice {
+    font-size: 7px;
+  }
+
+  .matrix-row span {
+    font-size: 6.5px;
+  }
+
+  .matrix-choice {
+    min-height: 18px;
   }
 
   .consent-row {

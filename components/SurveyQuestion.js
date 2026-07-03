@@ -2,6 +2,9 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
   const requiredText = screen.required ? 'Required' : 'Optional';
   const fieldId = `field-${screen.id}`;
   const isCompact = Array.isArray(screen.options) && screen.options.length >= 10;
+  const className = ['question-screen', isCompact ? 'compact-question' : '', screen.type === 'matrix' ? 'matrix-question' : '']
+    .filter(Boolean)
+    .join(' ');
 
   function toggleOption(option) {
     const current = Array.isArray(value) ? value : [];
@@ -18,7 +21,7 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
   }
 
   return (
-    <section className={isCompact ? 'question-screen compact-question' : 'question-screen'} aria-labelledby={`${screen.id}-label`}>
+    <section className={className} aria-labelledby={`${screen.id}-label`}>
       <div className="question-heading-row">
         <h1 id={`${screen.id}-label`}>{screen.label}</h1>
         <span>{requiredText}</span>
@@ -104,22 +107,32 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
 
         {screen.type === 'matrix' ? (
           <div className="matrix-list" aria-describedby={error ? `${screen.id}-error` : undefined}>
+            <div className="matrix-key" aria-hidden="true">
+              {screen.options.map((option) => (
+                <span key={option.value || option}>
+                  <strong>{option.short || option}</strong>
+                  {option.label || option}
+                </span>
+              ))}
+            </div>
             {screen.rows.map((row) => (
-              <label className="matrix-row" key={row}>
+              <div className="matrix-row" key={row}>
                 <span>{row}</span>
-                <select
-                  value={value?.[row] || ''}
-                  onChange={(event) => setMatrixValue(row, event.target.value)}
-                  aria-label={`${screen.label} ${row}`}
-                >
-                  <option value="">Select</option>
+                <div className="matrix-options" role="radiogroup" aria-label={`${screen.label} ${row}`}>
                   {screen.options.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
+                    <button
+                      type="button"
+                      key={option.value || option}
+                      className={value?.[row] === (option.value || option) ? 'matrix-choice active' : 'matrix-choice'}
+                      onClick={() => setMatrixValue(row, option.value || option)}
+                      aria-label={`${row}: ${option.label || option}`}
+                      aria-pressed={value?.[row] === (option.value || option)}
+                    >
+                      {option.short || option}
+                    </button>
                   ))}
-                </select>
-              </label>
+                </div>
+              </div>
             ))}
           </div>
         ) : null}
