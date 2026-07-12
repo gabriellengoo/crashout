@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import fs from 'fs/promises';
 import path from 'path';
 import { answerableScreens } from '../../data/surveyQuestions';
+import { appendSharePointListSubmission } from '../../lib/microsoftGraphStorage';
 import { stripUnsafeText, validateAll } from '../../lib/validation';
 
 const submissionsDir = path.join(process.cwd(), 'submissions');
@@ -77,6 +78,24 @@ async function appendWebhookSubmission(record) {
   return true;
 }
 
+async function appendConfiguredSubmission(record) {
+  const provider = process.env.SURVEY_STORAGE_PROVIDER || 'webhook';
+
+  if (provider === 'sharepoint-list') {
+    return appendSharePointListSubmission(record);
+  }
+
+  if (provider === 'webhook') {
+    return appendWebhookSubmission(record);
+  }
+
+  if (provider === 'local') {
+    return false;
+  }
+
+  throw new Error(`Unsupported SURVEY_STORAGE_PROVIDER: ${provider}`);
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -107,8 +126,8 @@ export default async function handler(req, res) {
     }
   };
 
-  const usedWebhook = await appendWebhookSubmission(record);
-  if (!usedWebhook) {
+  const usedConfiguredStorage = await appendConfiguredSubmission(record);
+  if (!usedConfiguredStorage) {
     if (process.env.VERCEL === '1' || process.env.NODE_ENV === 'production') {
       return res.status(200).json({ ok: true, submissionId, storageConfigured: false });
     }
