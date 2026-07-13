@@ -41,13 +41,19 @@ export default function SurveyPage() {
   useEffect(() => {
     const frame = questionFrameRef.current;
     if (!frame || questionContentBlank) return undefined;
+    if (currentSlide?.type === 'fact') {
+      setQuestionCanScroll(false);
+      setQuestionScrolledDown(false);
+      return undefined;
+    }
+
     const matrixList = frame.querySelector('.matrix-list');
     const scrollTarget =
-      matrixList && matrixList.scrollHeight - matrixList.clientHeight > 12 ? matrixList : frame;
+      matrixList && matrixList.scrollHeight - matrixList.clientHeight > 48 ? matrixList : frame;
 
     function updateScrollState() {
       const maxScroll = scrollTarget.scrollHeight - scrollTarget.clientHeight;
-      setQuestionCanScroll(maxScroll > 12);
+      setQuestionCanScroll(maxScroll > 48);
       setQuestionScrolledDown(scrollTarget.scrollTop >= maxScroll - 8);
     }
 

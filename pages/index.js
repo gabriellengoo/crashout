@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import Layout from '../components/Layout';
 import EventCard from '../components/EventCard';
 import PartnerLogos from '../components/PartnerLogos';
@@ -27,6 +28,8 @@ const resourcePrompts = [
 ];
 
 export default function Home() {
+  const [showResourcePeek, setShowResourcePeek] = useState(true);
+
   return (
     <Layout>
       <section className="site-logo-hero" id="site" aria-labelledby="site-title">
@@ -53,7 +56,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">Public activation</p>
             <h2>
-              <Link className="title-highlight" href="/events">Crash/Out</Link>
+              <Link className="title-static-link" href="/events">Crash/Out</Link>
             </h2>
             <p className="hero-subtitle">A live survey activation for racially minoritised theatre workers.</p>
             <i aria-hidden="true" />
@@ -67,19 +70,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="resource-peek" aria-label="Resource pack prompt">
-        <div className="resource-peek-icon" aria-hidden="true">
-          <span />
-        </div>
-        <div>
-          <h2>Resource Pack</h2>
-          <p>Help build the resource pack we all wish existed earlier.</p>
-        </div>
-        <Link className="button outline-dark" href="#resource-pack">
-          Contribute
-        </Link>
-        <div className="resource-peek-dots" aria-hidden="true" />
-      </section>
+      {showResourcePeek ? (
+        <section className="resource-peek" aria-label="Resource pack prompt">
+          <button
+            className="resource-peek-close"
+            type="button"
+            onClick={() => setShowResourcePeek(false)}
+            aria-label="Close resource pack prompt"
+          >
+            x
+          </button>
+          <div className="resource-peek-icon" aria-hidden="true">
+            <span />
+          </div>
+          <div>
+            <h2>Resource Pack</h2>
+            <p>Help build the resource pack we all wish existed earlier.</p>
+          </div>
+          <Link className="button outline-dark" href="#resource-pack">
+            Contribute
+          </Link>
+          <div className="resource-peek-dots" aria-hidden="true" />
+        </section>
+      ) : null}
 
       <section className="intro-band" id="about">
         <div className="intro-copy">

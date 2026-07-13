@@ -190,6 +190,7 @@ button:disabled {
 .nav-link-crash:hover,
 .nav-link-crash:focus-visible {
   color: var(--hot-pink);
+  text-decoration-color: var(--hot-pink);
 }
 
 .nav-link-survey::after {
@@ -645,6 +646,20 @@ button:disabled {
   animation: resourcePeekIn 520ms ease both;
 }
 
+.resource-peek-close {
+  position: absolute;
+  right: clamp(12px, 2vw, 22px);
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .resource-peek-icon {
   position: relative;
   width: clamp(42px, 5vw, 58px);
@@ -724,7 +739,7 @@ button:disabled {
 .back-to-top {
   position: fixed;
   right: clamp(18px, 4vw, 44px);
-  bottom: calc(118px + env(safe-area-inset-bottom));
+  bottom: calc(96px + env(safe-area-inset-bottom));
   z-index: 90;
   min-width: 72px;
   min-height: 42px;
@@ -744,6 +759,11 @@ button:disabled {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+.mobile-menu.open ~ main ~ .back-to-top {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero {
@@ -937,6 +957,10 @@ section.content-band.event-rsvp {
   color: var(--hot-pink);
 }
 
+.title-static-link {
+  color: inherit;
+}
+
 #learn-more {
   background: #d8f8fb;
 }
@@ -1085,6 +1109,7 @@ section.content-band.event-rsvp {
 }
 
 .inline-link {
+  color: var(--hot-pink);
   text-decoration: underline;
   text-underline-offset: 5px;
 }
@@ -1386,7 +1411,7 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(118px, 16dvh, 152px) clamp(18px, 7vw, 120px) clamp(76px, 12dvh, 116px);
+  padding: clamp(96px, 14dvh, 132px) clamp(18px, 7vw, 120px) clamp(76px, 12dvh, 116px);
   background: var(--white);
 }
 
@@ -1421,7 +1446,7 @@ textarea {
 
 .question-frame {
   width: min(920px, 100%);
-  max-height: calc(100dvh - clamp(230px, 31dvh, 290px));
+  max-height: calc(100dvh - clamp(190px, 27dvh, 250px));
   margin: 0 auto;
   overflow-y: auto;
   scrollbar-width: none;
@@ -1566,17 +1591,20 @@ textarea {
 }
 
 .choice-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0;
+  display: flex;
+  flex-wrap: wrap;
   background: var(--white);
-  border: 1px solid var(--black);
+  border-top: 1px solid var(--black);
+  border-left: 1px solid var(--black);
 }
 
 .choice {
-  min-height: clamp(72px, 9.6dvh, 96px);
-  border: 1px solid var(--black);
-  margin: -1px 0 0 -1px;
+  flex: 0 0 50%;
+  min-height: clamp(30px, 5.6dvh, 50px);
+  border: 0;
+  border-right: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  margin: 0;
   border-radius: 0;
   background: var(--white);
   padding: clamp(8px, 1.3dvh, 12px);
@@ -1601,12 +1629,13 @@ textarea {
 }
 
 .compact-question .choice-list {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
 }
 
 .compact-question .choice {
-  min-height: clamp(76px, 9dvh, 96px);
-  padding: clamp(9px, 1.2dvh, 14px);
+  flex-basis: 33.333%;
+  min-height: clamp(24px, 4dvh, 36px);
+  padding: clamp(5px, 0.9dvh, 8px);
   font-size: clamp(13px, min(1.2vw, 1.65dvh), 16px);
   line-height: 1.14;
 }
@@ -1639,7 +1668,7 @@ textarea {
   width: 28px;
   height: 28px;
   margin-top: -10px;
-  border: 2px solid var(--black);
+  border: 0;
   border-radius: 50%;
   background: var(--hot-pink);
   -webkit-appearance: none;
@@ -1653,7 +1682,7 @@ textarea {
 .scale-slider-field input[type="range"]::-moz-range-thumb {
   width: 28px;
   height: 28px;
-  border: 2px solid var(--black);
+  border: 0;
   border-radius: 50%;
   background: var(--hot-pink);
 }
@@ -1674,12 +1703,7 @@ textarea {
 }
 
 .scale-slider-labels {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  color: var(--black);
-  font-size: clamp(13px, min(1.4vw, 1.8dvh), 18px);
-  font-weight: 900;
-  text-align: center;
+  display: none;
 }
 
 .scale-slider-endpoints {
@@ -1692,12 +1716,28 @@ textarea {
   color: var(--black);
   font-size: clamp(12px, min(1.2vw, 1.5dvh), 15px);
   line-height: 1.25;
-  text-align: center;
+  text-align: left;
+}
+
+.scale-slider-key p {
+  margin: 0;
+}
+
+.scale-slider-key p + p {
+  margin-top: 4px;
+}
+
+.scale-slider-key strong {
+  font-weight: 900;
+}
+
+.scale-slider-key span {
+  margin-left: 4px;
 }
 
 .matrix-question h1 {
-  max-width: 1080px;
-  font-size: clamp(24px, min(3.8vw, 4.8dvh), 44px);
+  max-width: 980px;
+  font-size: clamp(22px, min(3.3vw, 4.3dvh), 40px);
   line-height: 1.04;
 }
 
@@ -1737,9 +1777,9 @@ textarea {
 
 .matrix-key {
   display: grid;
-  grid-template-columns: minmax(360px, 1fr) repeat(6, minmax(118px, 0.16fr));
+  grid-template-columns: minmax(230px, 1fr) repeat(6, minmax(82px, 0.16fr));
   gap: 0;
-  min-width: 1100px;
+  min-width: 760px;
 }
 
 .matrix-key::before {
@@ -1753,36 +1793,38 @@ textarea {
   gap: 2px;
   align-content: start;
   background: var(--white);
-  min-height: 86px;
-  padding: 10px 8px;
+  min-height: 58px;
+  padding: 8px 7px;
   border: 1px solid var(--black);
-  font-size: clamp(11px, min(1vw, 1.3dvh), 14px);
+  font-size: clamp(10px, min(0.9vw, 1.15dvh), 12px);
   font-weight: 400;
   line-height: 1.12;
   text-transform: none;
 }
 
 .matrix-key strong {
-  font-size: clamp(12px, min(1.1vw, 1.45dvh), 16px);
+  font-size: clamp(11px, min(1vw, 1.25dvh), 14px);
 }
 
 .matrix-row {
   display: grid;
-  grid-template-columns: minmax(360px, 1fr) minmax(708px, 0.96fr);
+  grid-template-columns: minmax(230px, 1fr) minmax(492px, 0.96fr);
   gap: 0;
   align-items: center;
-  min-width: 1100px;
+  min-width: 760px;
   background: var(--white);
   padding: 0;
 }
 
 .matrix-row span {
-  min-height: 64px;
+  min-height: 42px;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 8px 10px;
   border: 1px solid var(--black);
-  font-size: clamp(13px, min(1.25vw, 1.65dvh), 17px);
+  background: var(--black);
+  color: var(--white);
+  font-size: clamp(12px, min(1.05vw, 1.35dvh), 15px);
   font-weight: 400;
   line-height: 1.16;
   text-transform: none;
@@ -1796,13 +1838,13 @@ textarea {
 }
 
 .matrix-choice {
-  min-height: 64px;
+  min-height: 42px;
   border: 1px solid var(--black);
   border-radius: 0;
   background: var(--white);
   padding: 4px 2px;
   color: var(--black);
-  font-size: clamp(12px, min(1.1vw, 1.45dvh), 15px);
+  font-size: clamp(11px, min(1vw, 1.25dvh), 13px);
   font-weight: 400;
   text-transform: none;
 }
@@ -1814,8 +1856,8 @@ textarea {
 
 .question-scroll-toggle {
   position: fixed;
-  right: clamp(18px, 7vw, 120px);
-  top: 50%;
+  right: calc(clamp(18px, 7vw, 120px) + 236px);
+  bottom: 28px;
   z-index: 45;
   width: 46px;
   height: 46px;
@@ -1824,7 +1866,6 @@ textarea {
   border: 0;
   background: transparent;
   color: var(--black);
-  transform: translateY(-50%);
 }
 
 .question-scroll-toggle svg {
@@ -1902,6 +1943,14 @@ textarea {
 
 .thank-you-overlay .crash-logo i {
   height: clamp(3px, min(0.8vw, 0.8dvh), 9px);
+}
+
+.survey-brand-lockup {
+  margin: 0;
+  font-size: clamp(18px, min(4vw, 4dvh), 40px);
+  font-weight: 950;
+  line-height: 0.9;
+  text-transform: uppercase;
 }
 
 .thank-you-overlay h1 {
@@ -2186,7 +2235,7 @@ textarea {
   .survey-shell {
     height: 100dvh;
     justify-content: center;
-    padding: clamp(112px, 18dvh, 140px) 18px clamp(72px, 12dvh, 104px);
+    padding: clamp(96px, 15dvh, 124px) 18px clamp(72px, 12dvh, 104px);
   }
 
   .survey-brand {
@@ -2197,7 +2246,7 @@ textarea {
 
   .question-frame {
     width: 100%;
-    max-height: calc(100dvh - clamp(230px, 34dvh, 286px));
+    max-height: calc(100dvh - clamp(190px, 30dvh, 246px));
   }
 
   .question-heading-row {
@@ -2206,11 +2255,12 @@ textarea {
   }
 
   .choice-list {
-    grid-template-columns: 1fr;
+    display: flex;
   }
 
   .choice {
-    min-height: clamp(72px, 10dvh, 94px);
+    flex-basis: 100%;
+    min-height: clamp(28px, 5.2dvh, 42px);
     font-size: clamp(13px, 3.4vw, 16px);
     line-height: 1.18;
   }
@@ -2235,11 +2285,12 @@ textarea {
   }
 
   .compact-question .choice-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
   }
 
   .compact-question .choice {
-    min-height: 76px;
+    flex-basis: 100%;
+    min-height: 0;
     padding: 7px 8px;
     font-size: clamp(12.5px, 3.1vw, 15px);
     line-height: 1.14;
@@ -2256,18 +2307,19 @@ textarea {
 
   .matrix-list {
     max-height: calc(100dvh - 315px);
+    overflow-x: hidden;
   }
 
   .matrix-row {
-    grid-template-columns: minmax(260px, 1fr) minmax(540px, 0.95fr);
-    min-width: 820px;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-width: 0;
     gap: 0;
     padding: 0;
   }
 
   .matrix-key {
-    grid-template-columns: minmax(260px, 1fr) repeat(6, minmax(90px, 0.16fr));
-    min-width: 820px;
+    display: none;
   }
 
   .matrix-key span {
@@ -2280,18 +2332,28 @@ textarea {
   }
 
   .matrix-row span {
+    min-height: 44px;
+    border-bottom: 0;
+    background: var(--black);
+    color: var(--white);
     font-size: clamp(10.5px, 2.7vw, 13px);
     line-height: 1.14;
   }
 
+  .matrix-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .matrix-choice {
-    min-height: 54px;
+    min-height: 40px;
     padding: 2px 1px;
     font-size: clamp(10px, 2.5vw, 12px);
   }
 
   .question-scroll-toggle {
-    right: 18px;
+    right: auto;
+    left: calc(50% + 28px);
+    bottom: calc(17px + env(safe-area-inset-bottom));
     width: 40px;
     height: 40px;
   }
@@ -2350,7 +2412,7 @@ textarea {
 
 @media (max-width: 380px) and (max-height: 700px) {
   .survey-shell {
-    padding-top: 106px;
+    padding-top: 92px;
     padding-bottom: 64px;
   }
 
@@ -2389,7 +2451,7 @@ textarea {
   }
 
   .choice {
-    min-height: 64px;
+    min-height: 24px;
     padding: 5px 7px;
     font-size: 12px;
     line-height: 1.15;

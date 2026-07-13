@@ -1,5 +1,5 @@
 export default function SurveyQuestion({ screen, value, onChange, extraValue, onExtraChange, error, onEnter }) {
-  const requiredText = screen.required ? 'Required' : 'Optional';
+  const requiredText = screen.required ? '(Required)' : '(Optional)';
   const fieldId = `field-${screen.id}`;
   const isCompact = Array.isArray(screen.options) && screen.options.length >= 10;
   const otherOption = Array.isArray(screen.options)
@@ -14,10 +14,17 @@ export default function SurveyQuestion({ screen, value, onChange, extraValue, on
   const sliderValue = value || scaleValues[Math.floor(scaleValues.length / 2)] || '';
   const scaleKey =
     isScaleQuestion && scaleValues.length
-      ? `${scaleValues[0]} = ${screen.scaleLabels[scaleValues[0]] || scaleValues[0]}. ${
-          scaleValues[scaleValues.length - 1]
-        } = ${screen.scaleLabels[scaleValues[scaleValues.length - 1]] || scaleValues[scaleValues.length - 1]}.`
-      : '';
+      ? [
+          {
+            value: scaleValues[0],
+            label: screen.scaleLabels[scaleValues[0]] || scaleValues[0]
+          },
+          {
+            value: scaleValues[scaleValues.length - 1],
+            label: screen.scaleLabels[scaleValues[scaleValues.length - 1]] || scaleValues[scaleValues.length - 1]
+          }
+        ]
+      : [];
   const className = ['question-screen', isCompact ? 'compact-question' : '', screen.type === 'matrix' ? 'matrix-question' : '']
     .filter(Boolean)
     .join(' ');
@@ -120,12 +127,16 @@ export default function SurveyQuestion({ screen, value, onChange, extraValue, on
                 <span>Move the slider to answer.</span>
               )}
             </div>
-            <div className="scale-slider-labels" aria-hidden="true">
-              {scaleValues.map((option) => (
-                <span key={option}>{option}</span>
-              ))}
-            </div>
-            {scaleKey ? <p className="scale-slider-key">{scaleKey}</p> : null}
+            {scaleKey.length ? (
+              <div className="scale-slider-key">
+                {scaleKey.map((item) => (
+                  <p key={item.value}>
+                    <strong>{item.value}</strong>
+                    <span>= {item.label}.</span>
+                  </p>
+                ))}
+              </div>
+            ) : null}
           </div>
         ) : null}
 
