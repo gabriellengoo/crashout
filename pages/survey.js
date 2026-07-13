@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import ProgressBar from '../components/ProgressBar';
@@ -20,12 +20,20 @@ export default function SurveyPage() {
   const [questionContentBlank, setQuestionContentBlank] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const currentSlide = surveyScreens[currentStep];
-  const activeQuestionIndex = useMemo(
-    () => surveyScreens.slice(0, currentStep + 1).filter((screen) => screen.type !== 'fact').length - 1,
-    [currentStep]
+  const visibleScreens = useMemo(
+    () => surveyScreens.filter((screen) => !screen.visibleWhen || screen.visibleWhen(formData)),
+    [formData]
   );
-  const isLast = currentStep === surveyScreens.length - 1;
+  const currentSlide = visibleScreens[currentStep] || visibleScreens[visibleScreens.length - 1];
+  const activeQuestionIndex = useMemo(
+    () => visibleScreens.slice(0, currentStep + 1).filter((screen) => screen.type !== 'fact').length - 1,
+    [currentStep, visibleScreens]
+  );
+  const isLast = currentStep === visibleScreens.length - 1;
+
+  useEffect(() => {
+    if (currentStep >= visibleScreens.length) setCurrentStep(Math.max(visibleScreens.length - 1, 0));
+  }, [currentStep, visibleScreens.length]);
 
   function setValue(id, value) {
     setFormData((current) => ({ ...current, [id]: value }));
@@ -73,9 +81,9 @@ export default function SurveyPage() {
   }
 
   async function handleSubmit() {
-    const missing = validateAll(formData);
+    const missing = validateAll(formData, visibleScreens);
     if (missing) {
-      const missingIndex = surveyScreens.findIndex((screen) => screen.id === missing.id);
+      const missingIndex = visibleScreens.findIndex((screen) => screen.id === missing.id);
       setErrors({ [missing.id]: missing.message });
       moveToStep(missingIndex, missingIndex > currentStep ? 'forward' : 'back');
       return;
@@ -91,7 +99,10 @@ export default function SurveyPage() {
           metadata: {
             eventSource: source,
             activeQuestionIndex,
-            userAgent: navigator.userAgent
+            scaleLabels: visibleScreens
+              .filter((screen) => screen.scaleLabels)
+              .reduce((labels, screen) => ({ ...labels, [screen.id]: screen.scaleLabels }), {}),
+            identifyingFields: visibleScreens.filter((screen) => screen.identifying).map((screen) => screen.id)
           },
           website: ''
         })
@@ -121,7 +132,7 @@ export default function SurveyPage() {
       return;
     }
 
-    moveToStep(currentStep + 1, 'forward');
+    moveToStep(Math.min(currentStep + 1, visibleScreens.length - 1), 'forward');
   }
 
   function handleBack() {
@@ -132,7 +143,7 @@ export default function SurveyPage() {
   return (
     <Layout bare>
       <div className="survey-page">
-        <ProgressBar current={currentStep + 1} total={surveyScreens.length} />
+        <ProgressBar current={currentStep + 1} total={visibleScreens.length} />
         <div className="survey-shell">
           <p className="survey-brand">{currentSlide.section}</p>
           <div
@@ -151,6 +162,8 @@ export default function SurveyPage() {
                 screen={currentSlide}
                 value={formData[currentSlide.id]}
                 onChange={(value) => setValue(currentSlide.id, value)}
+                extraValue={formData[`${currentSlide.id}__other`]}
+                onExtraChange={(value) => setValue(`${currentSlide.id}__other`, value)}
                 onEnter={handleNext}
                 error={errors[currentSlide.id]}
               />

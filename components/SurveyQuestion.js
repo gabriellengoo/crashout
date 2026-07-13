@@ -1,7 +1,14 @@
-export default function SurveyQuestion({ screen, value, onChange, error, onEnter }) {
+export default function SurveyQuestion({ screen, value, onChange, extraValue, onExtraChange, error, onEnter }) {
   const requiredText = screen.required ? 'Required' : 'Optional';
   const fieldId = `field-${screen.id}`;
   const isCompact = Array.isArray(screen.options) && screen.options.length >= 10;
+  const otherOption = Array.isArray(screen.options)
+    ? screen.options.find((option) => typeof option === 'string' && option.includes('Other, please specify'))
+    : '';
+  const showOtherField =
+    screen.otherField &&
+    otherOption &&
+    ((Array.isArray(value) && value.includes(otherOption)) || value === otherOption);
   const className = ['question-screen', isCompact ? 'compact-question' : '', screen.type === 'matrix' ? 'matrix-question' : '']
     .filter(Boolean)
     .join(' ');
@@ -12,7 +19,14 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
       onChange(current.filter((item) => item !== option));
       return;
     }
-    onChange([...current, option]);
+
+    const exclusiveOptions = screen.exclusiveOptions || [];
+    if (exclusiveOptions.includes(option)) {
+      onChange([option]);
+      return;
+    }
+
+    onChange([...current.filter((item) => !exclusiveOptions.includes(item)), option]);
   }
 
   function setMatrixValue(row, answer) {
@@ -103,6 +117,19 @@ export default function SurveyQuestion({ screen, value, onChange, error, onEnter
               </button>
             ))}
           </div>
+        ) : null}
+
+        {showOtherField ? (
+          <label className="other-field" htmlFor={`${fieldId}-other`}>
+            Other, please specify
+            <textarea
+              id={`${fieldId}-other`}
+              value={extraValue || ''}
+              onInput={(event) => onExtraChange(event.currentTarget.value)}
+              onChange={(event) => onExtraChange(event.target.value)}
+              rows={3}
+            />
+          </label>
         ) : null}
 
         {screen.type === 'matrix' ? (

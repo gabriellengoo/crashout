@@ -1016,6 +1016,7 @@ textarea {
 .question-frame {
   width: min(820px, 100%);
   max-height: calc(100dvh - clamp(130px, 22dvh, 194px));
+  overflow-y: auto;
   transition: opacity 0.65s ease;
 }
 
@@ -1078,6 +1079,30 @@ textarea {
   line-height: 1.22;
 }
 
+.fact-slide-interlude {
+  width: min(900px, 100%);
+}
+
+.fact-slide-interlude h1 {
+  font-size: clamp(32px, min(6.4vw, 9dvh), 82px);
+}
+
+.fact-slide-interlude .question-description.large {
+  max-width: min(780px, 100%);
+  font-size: clamp(18px, min(3vw, 4.5dvh), 42px);
+  line-height: 1.12;
+}
+
+.fact-source {
+  max-width: min(680px, 100%);
+  margin: clamp(12px, 2dvh, 22px) 0 0;
+  color: var(--muted);
+  font-size: clamp(9px, min(1vw, 1.4dvh), 12px);
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
 .question-heading-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -1127,10 +1152,10 @@ textarea {
   padding: clamp(8px, 1.3dvh, 12px);
   color: var(--black);
   text-align: left;
-  font-size: clamp(9px, min(1.05vw, 1.4dvh), 12px);
-  line-height: 1.08;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-size: clamp(12px, min(1.25vw, 1.8dvh), 16px);
+  line-height: 1.18;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .compact-question h1 {
@@ -1152,8 +1177,8 @@ textarea {
 .compact-question .choice {
   min-height: clamp(24px, 4dvh, 36px);
   padding: clamp(5px, 0.9dvh, 8px);
-  font-size: clamp(7.5px, min(0.8vw, 1.05dvh), 10px);
-  line-height: 1.03;
+  font-size: clamp(10px, min(1vw, 1.4dvh), 13px);
+  line-height: 1.14;
 }
 
 .matrix-question h1 {
@@ -1171,17 +1196,38 @@ textarea {
   color: var(--white);
 }
 
+.other-field {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.other-field textarea {
+  min-height: 74px;
+}
+
 .matrix-list {
   display: grid;
   gap: 1px;
+  max-height: min(52dvh, 520px);
+  overflow: auto;
   border: 1px solid var(--line);
   background: var(--line);
+  -webkit-overflow-scrolling: touch;
 }
 
 .matrix-key {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1px;
+  min-width: 680px;
 }
 
 .matrix-key span {
@@ -1190,10 +1236,10 @@ textarea {
   align-content: start;
   background: var(--soft-yellow);
   padding: 6px;
-  font-size: clamp(7px, min(0.7vw, 0.9dvh), 9px);
-  font-weight: 800;
-  line-height: 1.05;
-  text-transform: uppercase;
+  font-size: clamp(9px, min(0.9vw, 1.1dvh), 11px);
+  font-weight: 700;
+  line-height: 1.12;
+  text-transform: none;
 }
 
 .matrix-key strong {
@@ -1205,15 +1251,16 @@ textarea {
   grid-template-columns: minmax(0, 1fr) minmax(230px, 0.9fr);
   gap: 8px;
   align-items: center;
+  min-width: 680px;
   background: var(--white);
   padding: clamp(4px, 0.75dvh, 7px) 8px;
 }
 
 .matrix-row span {
-  font-size: clamp(8px, min(0.95vw, 1.1dvh), 10px);
-  font-weight: 800;
-  line-height: 1.1;
-  text-transform: uppercase;
+  font-size: clamp(10px, min(1.1vw, 1.35dvh), 13px);
+  font-weight: 700;
+  line-height: 1.16;
+  text-transform: none;
 }
 
 .matrix-options {
@@ -1230,9 +1277,9 @@ textarea {
   background: var(--white);
   padding: 4px 2px;
   color: var(--black);
-  font-size: clamp(8px, min(0.85vw, 1.05dvh), 10px);
-  font-weight: 800;
-  text-transform: uppercase;
+  font-size: clamp(10px, min(1vw, 1.2dvh), 12px);
+  font-weight: 700;
+  text-transform: none;
 }
 
 .matrix-choice.active {
@@ -1289,31 +1336,51 @@ textarea {
   display: grid;
   align-content: center;
   justify-items: center;
-  gap: 22px;
-  padding: clamp(28px, 7vw, 96px);
-  overflow: hidden;
+  gap: clamp(10px, min(2.4vw, 2.8dvh), 22px);
+  padding: clamp(18px, min(6vw, 6dvh), 80px);
+  overflow: auto;
   background: var(--butter);
   color: var(--black);
   text-align: center;
+  -webkit-overflow-scrolling: touch;
 }
 
 .thank-you-overlay .crash-logo span {
-  font-size: clamp(42px, 9vw, 126px);
+  font-size: clamp(34px, min(10vw, 10dvh), 118px);
+}
+
+.thank-you-overlay .crash-logo i {
+  height: clamp(3px, min(0.8vw, 0.8dvh), 9px);
 }
 
 .thank-you-overlay h1 {
-  max-width: 980px;
+  max-width: min(980px, 94vw);
   margin: 0;
-  font-size: clamp(34px, 7vw, 94px);
-  line-height: 0.93;
+  font-size: clamp(26px, min(7vw, 7dvh), 86px);
+  line-height: 0.98;
   text-transform: uppercase;
 }
 
 .thank-you-overlay p:not(.eyebrow) {
-  max-width: 620px;
+  max-width: min(620px, 88vw);
   margin: 0;
-  font-size: clamp(16px, 2.2vw, 25px);
-  line-height: 1.15;
+  font-size: clamp(14px, min(2.2vw, 2.6dvh), 24px);
+  line-height: 1.18;
+}
+
+.thank-you-overlay .eyebrow {
+  margin-bottom: 0;
+  font-size: clamp(9px, min(1.4vw, 1.8dvh), 11px);
+}
+
+.thank-you-overlay .button-row {
+  margin-top: clamp(4px, min(1.6vw, 1.8dvh), 18px);
+}
+
+.thank-you-overlay .button {
+  min-height: clamp(38px, 5.4dvh, 44px);
+  padding: clamp(9px, 1.8dvh, 12px) clamp(12px, 3vw, 18px);
+  font-size: clamp(10px, min(1.4vw, 1.8dvh), 12px);
 }
 
 @keyframes revealQuestion {
@@ -1479,6 +1546,27 @@ textarea {
     align-items: stretch;
   }
 
+  .thank-you-overlay {
+    align-content: center;
+    gap: clamp(8px, 2.2dvh, 14px);
+    padding: 18px;
+  }
+
+  .thank-you-overlay .crash-logo span {
+    font-size: clamp(28px, min(16vw, 8.5dvh), 62px);
+  }
+
+  .thank-you-overlay h1 {
+    max-width: 92vw;
+    font-size: clamp(24px, min(9vw, 6dvh), 42px);
+    line-height: 1;
+  }
+
+  .thank-you-overlay p:not(.eyebrow) {
+    max-width: 90vw;
+    font-size: clamp(13px, min(4vw, 2.4dvh), 16px);
+  }
+
   .split,
   .event-grid,
   .audience-grid {
@@ -1535,6 +1623,8 @@ textarea {
 
   .choice {
     min-height: clamp(28px, 5.2dvh, 42px);
+    font-size: clamp(13px, 3.4vw, 16px);
+    line-height: 1.18;
   }
 
   .question-screen h1 {
@@ -1561,9 +1651,9 @@ textarea {
 
   .compact-question .choice {
     min-height: 0;
-    padding: 5px 6px;
-    font-size: clamp(7px, 1.95vw, 8.5px);
-    line-height: 1.02;
+    padding: 7px 8px;
+    font-size: clamp(10.5px, 2.7vw, 12.5px);
+    line-height: 1.14;
   }
 
   .matrix-question h1 {
@@ -1575,6 +1665,10 @@ textarea {
     margin-top: 6px;
   }
 
+  .matrix-list {
+    max-height: calc(100dvh - 260px);
+  }
+
   .matrix-row {
     grid-template-columns: minmax(0, 1fr) minmax(156px, 0.95fr);
     gap: 5px;
@@ -1583,7 +1677,7 @@ textarea {
 
   .matrix-key span {
     padding: 4px 3px;
-    font-size: clamp(5.5px, 1.55vw, 7px);
+    font-size: clamp(7.5px, 2vw, 9px);
   }
 
   .matrix-key strong {
@@ -1591,14 +1685,14 @@ textarea {
   }
 
   .matrix-row span {
-    font-size: clamp(6.8px, 1.9vw, 8.5px);
-    line-height: 1.02;
+    font-size: clamp(9px, 2.4vw, 11px);
+    line-height: 1.14;
   }
 
   .matrix-choice {
     min-height: 21px;
     padding: 2px 1px;
-    font-size: clamp(7px, 1.85vw, 8px);
+    font-size: clamp(8.5px, 2.2vw, 10px);
   }
 
   input,
@@ -1691,8 +1785,8 @@ textarea {
   .choice {
     min-height: 24px;
     padding: 5px 7px;
-    font-size: 8px;
-    line-height: 1.03;
+    font-size: 12px;
+    line-height: 1.15;
   }
 
   .compact-question h1 {
@@ -1700,13 +1794,17 @@ textarea {
   }
 
   .compact-question .choice {
-    padding: 4px 5px;
-    font-size: 6.5px;
-    line-height: 1;
+    padding: 6px 7px;
+    font-size: 10px;
+    line-height: 1.12;
   }
 
   .matrix-question h1 {
     font-size: 13px;
+  }
+
+  .matrix-list {
+    max-height: calc(100dvh - 230px);
   }
 
   .matrix-row {
@@ -1716,16 +1814,16 @@ textarea {
 
   .matrix-key span {
     padding: 3px 2px;
-    font-size: 5.5px;
+    font-size: 7px;
   }
 
   .matrix-key strong,
   .matrix-choice {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .matrix-row span {
-    font-size: 6.5px;
+    font-size: 8.5px;
   }
 
   .matrix-choice {
@@ -1751,6 +1849,37 @@ textarea {
   .survey-nav {
     padding-top: 8px;
     padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+
+  .thank-you-overlay {
+    align-content: start;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+
+  .thank-you-overlay .crash-logo span {
+    font-size: clamp(24px, min(14vw, 7dvh), 48px);
+  }
+
+  .thank-you-overlay h1 {
+    font-size: clamp(21px, min(8vw, 5.2dvh), 31px);
+    line-height: 1;
+  }
+
+  .thank-you-overlay p:not(.eyebrow) {
+    font-size: clamp(12px, min(3.5vw, 2.2dvh), 14px);
+    line-height: 1.15;
+  }
+
+  .thank-you-overlay .button-row {
+    gap: 7px;
+    margin-top: 4px;
+  }
+
+  .thank-you-overlay .button {
+    min-height: 36px;
+    padding: 8px 10px;
+    font-size: 10px;
   }
 
   .survey-nav .button {
