@@ -81,7 +81,17 @@ export default function SurveyPage() {
   }
 
   async function handleSubmit() {
-    const missing = validateAll(formData, visibleScreens);
+    const visibleAnswerableScreens = visibleScreens.filter((screen) => screen.type !== 'fact');
+    const visibleAnswerIds = new Set(visibleAnswerableScreens.map((screen) => screen.id));
+    const visibleOtherIds = new Set(visibleAnswerableScreens.filter((screen) => screen.otherField).map((screen) => `${screen.id}__other`));
+    const visibleFormData = Object.fromEntries(
+      Object.entries(formData).filter(([key]) => visibleAnswerIds.has(key) || visibleOtherIds.has(key))
+    );
+    const scaleLabels = visibleAnswerableScreens
+      .filter((screen) => screen.scaleLabels)
+      .reduce((labels, screen) => ({ ...labels, [screen.id]: screen.scaleLabels }), {});
+    const identifyingFields = visibleAnswerableScreens.filter((screen) => screen.identifying).map((screen) => screen.id);
+    const missing = validateAll(visibleFormData, visibleScreens);
     if (missing) {
       const missingIndex = visibleScreens.findIndex((screen) => screen.id === missing.id);
       setErrors({ [missing.id]: missing.message });
@@ -95,14 +105,13 @@ export default function SurveyPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          formData,
+          formData: visibleFormData,
           metadata: {
             eventSource: source,
             activeQuestionIndex,
-            scaleLabels: visibleScreens
-              .filter((screen) => screen.scaleLabels)
-              .reduce((labels, screen) => ({ ...labels, [screen.id]: screen.scaleLabels }), {}),
-            identifyingFields: visibleScreens.filter((screen) => screen.identifying).map((screen) => screen.id)
+            scaleLabels,
+            identifyingFields,
+            visibleScreenIds: visibleScreens.map((screen) => screen.id)
           },
           website: ''
         })

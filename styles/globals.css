@@ -1154,7 +1154,7 @@ textarea {
   text-align: left;
   font-size: clamp(12px, min(1.25vw, 1.8dvh), 16px);
   line-height: 1.18;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: none;
 }
 
@@ -1221,13 +1221,15 @@ textarea {
 }
 
 .matrix-key {
-  position: sticky;
-  top: 0;
-  z-index: 1;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) repeat(6, minmax(0, 0.15fr));
   gap: 1px;
   min-width: 680px;
+}
+
+.matrix-key::before {
+  content: "";
+  background: var(--soft-yellow);
 }
 
 .matrix-key span {
@@ -1237,7 +1239,7 @@ textarea {
   background: var(--soft-yellow);
   padding: 6px;
   font-size: clamp(9px, min(0.9vw, 1.1dvh), 11px);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.12;
   text-transform: none;
 }
@@ -1258,7 +1260,7 @@ textarea {
 
 .matrix-row span {
   font-size: clamp(10px, min(1.1vw, 1.35dvh), 13px);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.16;
   text-transform: none;
 }
@@ -1278,7 +1280,7 @@ textarea {
   padding: 4px 2px;
   color: var(--black);
   font-size: clamp(10px, min(1vw, 1.2dvh), 12px);
-  font-weight: 700;
+  font-weight: 400;
   text-transform: none;
 }
 
