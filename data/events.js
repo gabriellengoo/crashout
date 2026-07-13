@@ -10,24 +10,24 @@ export const events = [
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=London%2C%20UK',
     theme: 'cyan',
     summary:
-      'A day of testimony, research framing, sector challenge, and collective action around anti-racism in theatre.',
+      'A live survey activation for racially minoritised theatre workers.',
     description:
-      'Crash Out brings theatre workers, artists, students, audience members, researchers, and cultural leaders together to record lived experience and turn it into evidence for sector accountability.',
+      'Crash/Out brings racially minoritised theatre workers together to gather, ask honest questions, contribute to practical resource-building, and complete the survey privately.',
     speakers: ['State Presenting', 'Rafier Piare Production', 'Royal Speech of Art'],
     programme: [
-      'Opening provocation: what theatre still refuses to record',
-      'Lived experience and testimony session',
-      'Research workshop: turning experience into evidence',
-      'Accountability roundtable for institutions and funders',
-      'Survey completion space and access support'
+      'Opening provocation: race, power and theatre producing',
+      'Shared meal and collective conversation',
+      'Anonymous resource-pack questions',
+      'Private survey completion space',
+      'What meaningful change could look like across the sector'
     ],
     schedule: [
       { time: '10:30', item: 'Arrival and registration' },
       { time: '11:00', item: 'Opening session' },
-      { time: '12:15', item: 'Testimony and research framing' },
+      { time: '12:15', item: 'Collective conversation and anonymous questions' },
       { time: '13:15', item: 'Break' },
-      { time: '14:00', item: 'Workshops and survey support' },
-      { time: '16:00', item: 'Sector demands and next steps' }
+      { time: '14:00', item: 'Resource pack questions and survey support' },
+      { time: '16:00', item: 'Shared themes and next steps' }
     ]
   },
   {
@@ -43,7 +43,7 @@ export const events = [
     summary:
       'A quieter drop-in space for people who want time, privacy, and access support while completing the survey.',
     description:
-      'This session is designed for people who want to contribute to the research outside a conference format. You can arrive at any point during the session.',
+      'This session is designed for people who want to contribute to the research outside a conference format. You can arrive at any point, ask questions, and complete the survey privately.',
     speakers: ['Crash Out research team'],
     programme: [
       'Drop-in survey completion',

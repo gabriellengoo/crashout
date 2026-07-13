@@ -7,11 +7,11 @@ export default function EventsPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <p className="eyebrow">Crash Out events</p>
-        <h1>Conference, survey rooms, and sector engagement.</h1>
+        <p className="eyebrow">Crash/Out events</p>
+        <h1>Live survey activations for racially minoritised theatre workers.</h1>
         <p>
-          Events help people take part in the research, understand how evidence will be used, and complete the survey
-          with context and support.
+          Crash/Out creates space to gather, eat, ask honest questions, contribute to practical resource-building, and
+          complete the Making Theatre Anti-Racist survey privately.
         </p>
       </section>
       <section className="content-band white">

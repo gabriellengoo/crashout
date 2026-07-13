@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import ProgressBar from '../components/ProgressBar';
@@ -19,6 +19,9 @@ export default function SurveyPage() {
   const [questionContentRevealing, setQuestionContentRevealing] = useState(false);
   const [questionContentBlank, setQuestionContentBlank] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const questionFrameRef = useRef(null);
+  const [questionCanScroll, setQuestionCanScroll] = useState(false);
+  const [questionScrolledDown, setQuestionScrolledDown] = useState(false);
 
   const visibleScreens = useMemo(
     () => surveyScreens.filter((screen) => !screen.visibleWhen || screen.visibleWhen(formData)),
@@ -34,6 +37,29 @@ export default function SurveyPage() {
   useEffect(() => {
     if (currentStep >= visibleScreens.length) setCurrentStep(Math.max(visibleScreens.length - 1, 0));
   }, [currentStep, visibleScreens.length]);
+
+  useEffect(() => {
+    const frame = questionFrameRef.current;
+    if (!frame || questionContentBlank) return undefined;
+    const matrixList = frame.querySelector('.matrix-list');
+    const scrollTarget =
+      matrixList && matrixList.scrollHeight - matrixList.clientHeight > 12 ? matrixList : frame;
+
+    function updateScrollState() {
+      const maxScroll = scrollTarget.scrollHeight - scrollTarget.clientHeight;
+      setQuestionCanScroll(maxScroll > 12);
+      setQuestionScrolledDown(scrollTarget.scrollTop >= maxScroll - 8);
+    }
+
+    updateScrollState();
+    scrollTarget.addEventListener('scroll', updateScrollState);
+    window.addEventListener('resize', updateScrollState);
+
+    return () => {
+      scrollTarget.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
+  }, [currentSlide?.id, questionContentBlank]);
 
   function setValue(id, value) {
     setFormData((current) => ({ ...current, [id]: value }));
@@ -149,13 +175,33 @@ export default function SurveyPage() {
     moveToStep(currentStep - 1, 'back');
   }
 
+  function handleQuestionScrollToggle() {
+    const frame = questionFrameRef.current;
+    if (!frame) return;
+    const matrixList = frame.querySelector('.matrix-list');
+    const scrollTarget =
+      matrixList && matrixList.scrollHeight - matrixList.clientHeight > 12 ? matrixList : frame;
+
+    scrollTarget.scrollTo({
+      top: questionScrolledDown ? 0 : scrollTarget.scrollHeight,
+      behavior: 'smooth'
+    });
+  }
+
   return (
     <Layout bare>
       <div className="survey-page">
         <ProgressBar current={currentStep + 1} total={visibleScreens.length} />
         <div className="survey-shell">
-          <p className="survey-brand">{currentSlide.section}</p>
+          <p className="survey-brand">
+            <span>Making Theatre Anti-Racist</span>
+            <span>Estimated time: 10-15 minutes</span>
+            {currentSlide.section && currentSlide.section !== 'Making Theatre Anti-Racist' ? (
+              <em>{currentSlide.section}</em>
+            ) : null}
+          </p>
           <div
+            ref={questionFrameRef}
             className={[
               'question-frame',
               currentSlide.type === 'fact' ? 'fact-frame' : '',
@@ -178,6 +224,19 @@ export default function SurveyPage() {
               />
             )}
           </div>
+          {questionCanScroll && !questionContentBlank ? (
+            <button
+              className={questionScrolledDown ? 'question-scroll-toggle up' : 'question-scroll-toggle'}
+              type="button"
+              onClick={handleQuestionScrollToggle}
+              aria-label={questionScrolledDown ? 'Scroll question up' : 'Scroll question down'}
+            >
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+                <polyline points="24 28 32 36 40 28" />
+                <rect x="8" y="8" width="48" height="48" />
+              </svg>
+            </button>
+          ) : null}
         </div>
         <SurveyNavigation
           canGoBack={currentStep > 0}

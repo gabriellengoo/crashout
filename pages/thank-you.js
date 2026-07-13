@@ -22,8 +22,8 @@ export default function ThankYou() {
       <section className="thank-you-overlay">
         <CrashOutLogo />
         <p className="eyebrow">Survey submitted</p>
-        <h1>Thank you for contributing to Crash Out.</h1>
-        <p>Your response helps build a clearer evidence base for anti-racism in theatre. Redirecting to events.</p>
+        <h1>Thank you for contributing to Making Theatre Anti-Racist.</h1>
+        <p>Your response helps build clearer recommendations for anti-racist theatre producing. Redirecting to events.</p>
         <div className="button-row center">
           <Link className="button dark" href="/events">
             Go to events

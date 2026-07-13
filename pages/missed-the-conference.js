@@ -8,8 +8,8 @@ export default function MissedConference() {
         <p className="eyebrow">Crash Out</p>
         <h1>Missed the conference?</h1>
         <p>
-          You can still take part. The Crash Out survey is open to Black and Brown people with experiences in theatre,
-          whether or not you attended an event.
+          You can still take part. The Making Theatre Anti-Racist survey is open to racially minoritised theatre workers
+          in Britain, whether or not you attended an event.
         </p>
         <div className="button-row">
           <Link className="button dark" href="/survey?source=missed-the-conference">

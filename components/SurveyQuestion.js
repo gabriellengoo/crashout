@@ -9,6 +9,15 @@ export default function SurveyQuestion({ screen, value, onChange, extraValue, on
     screen.otherField &&
     otherOption &&
     ((Array.isArray(value) && value.includes(otherOption)) || value === otherOption);
+  const isScaleQuestion = ['radio', 'segmented'].includes(screen.type) && screen.scaleLabels;
+  const scaleValues = isScaleQuestion ? screen.options.map((option) => String(option)) : [];
+  const sliderValue = value || scaleValues[Math.floor(scaleValues.length / 2)] || '';
+  const scaleKey =
+    isScaleQuestion && scaleValues.length
+      ? `${scaleValues[0]} = ${screen.scaleLabels[scaleValues[0]] || scaleValues[0]}. ${
+          scaleValues[scaleValues.length - 1]
+        } = ${screen.scaleLabels[scaleValues[scaleValues.length - 1]] || scaleValues[scaleValues.length - 1]}.`
+      : '';
   const className = ['question-screen', isCompact ? 'compact-question' : '', screen.type === 'matrix' ? 'matrix-question' : '']
     .filter(Boolean)
     .join(' ');
@@ -38,9 +47,11 @@ export default function SurveyQuestion({ screen, value, onChange, extraValue, on
     <section className={className} aria-labelledby={`${screen.id}-label`}>
       <div className="question-heading-row">
         <h1 id={`${screen.id}-label`}>{screen.label}</h1>
-        <span>{requiredText}</span>
+        <p className="question-meta">
+          <span>{requiredText}</span>
+          {!isScaleQuestion && screen.description ? <span>{screen.description}</span> : null}
+        </p>
       </div>
-      {screen.description ? <p className="question-description">{screen.description}</p> : null}
 
       <div className="field-zone">
         {screen.type === 'text' || screen.type === 'email' ? (
@@ -87,7 +98,38 @@ export default function SurveyQuestion({ screen, value, onChange, extraValue, on
           </select>
         ) : null}
 
-        {['radio', 'segmented'].includes(screen.type) ? (
+        {isScaleQuestion ? (
+          <div className="scale-slider-field" aria-describedby={error ? `${screen.id}-error` : undefined}>
+            <input
+              id={fieldId}
+              type="range"
+              min={scaleValues[0]}
+              max={scaleValues[scaleValues.length - 1]}
+              step="1"
+              value={sliderValue}
+              onInput={(event) => onChange(event.currentTarget.value)}
+              onChange={(event) => onChange(event.target.value)}
+              aria-label={screen.label}
+            />
+            <div className="scale-slider-value" aria-live="polite">
+              {value ? (
+                <>
+                  <strong>{value}</strong>
+                </>
+              ) : (
+                <span>Move the slider to answer.</span>
+              )}
+            </div>
+            <div className="scale-slider-labels" aria-hidden="true">
+              {scaleValues.map((option) => (
+                <span key={option}>{option}</span>
+              ))}
+            </div>
+            {scaleKey ? <p className="scale-slider-key">{scaleKey}</p> : null}
+          </div>
+        ) : null}
+
+        {['radio', 'segmented'].includes(screen.type) && !isScaleQuestion ? (
           <div className="choice-list" role="radiogroup" aria-describedby={error ? `${screen.id}-error` : undefined}>
             {screen.options.map((option) => (
               <button
