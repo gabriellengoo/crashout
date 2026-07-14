@@ -114,7 +114,7 @@ button:disabled {
   justify-content: space-between;
   gap: 24px;
   padding: 18px clamp(18px, 4vw, 44px);
-  border-bottom: 0.5rem solid var(--black);
+  border-bottom: 1px solid var(--black);
   background: var(--white);
   text-transform: uppercase;
   font-size: 12px;
@@ -543,7 +543,7 @@ button:disabled {
   align-items: stretch;
   padding: 0;
   background: var(--white);
-  border-bottom: 0.5rem solid var(--black);
+  border-bottom: 1px solid var(--black);
   text-align: left;
 }
 
@@ -582,7 +582,7 @@ button:disabled {
 
 .survey-panel {
   background: var(--white);
-  border-right: 0.5rem solid var(--black);
+  border-right: 1px solid var(--black);
 }
 
 .event-panel {
@@ -2292,7 +2292,7 @@ textarea {
 
   .survey-panel {
     border-right: 0;
-    border-bottom: 0.5rem solid var(--black);
+    border-bottom: 1px solid var(--black);
   }
 
   .landing-panel::after {
