@@ -50,7 +50,7 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
           <span className="brand-title">
             <span>Making</span>
             <span>Theatre</span>
-            <span>Anti-racist</span>
+            <span>Anti-Racist</span>
           </span>
         </Link>
         <button
@@ -74,17 +74,17 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
           <Link className="nav-link-survey" href="/survey">
             Survey
           </Link>
-          <Link className="nav-link-crash" href="/#crash-out" onClick={(event) => handleHomeAnchorClick(event, '#crash-out')}>
+          <Link className="nav-link-crash" href="/events">
             Crash/Out
           </Link>
-          <Link href="/#resource-pack" onClick={(event) => handleHomeAnchorClick(event, '#resource-pack')}>
-            Resource Pack
-          </Link>
-          <Link href="/#privacy-contact" onClick={(event) => handleHomeAnchorClick(event, '#privacy-contact')}>
+          <Link href="/privacy">
             Privacy
           </Link>
           <Link href="/#contact" onClick={(event) => handleHomeAnchorClick(event, '#contact')}>
             Contact
+          </Link>
+          <Link className="nav-button" href="/survey">
+            Complete the Survey
           </Link>
         </nav>
       </header>
@@ -95,13 +95,10 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
         <Link className="nav-link-survey" href="/survey" onClick={() => setMenuOpen(false)}>
           Survey
         </Link>
-        <Link className="nav-link-crash" href="/#crash-out" onClick={(event) => handleHomeAnchorClick(event, '#crash-out')}>
+        <Link className="nav-link-crash" href="/events" onClick={() => setMenuOpen(false)}>
           Crash/Out
         </Link>
-        <Link href="/#resource-pack" onClick={(event) => handleHomeAnchorClick(event, '#resource-pack')}>
-          Resource Pack
-        </Link>
-        <Link href="/#privacy-contact" onClick={(event) => handleHomeAnchorClick(event, '#privacy-contact')}>
+        <Link href="/privacy" onClick={() => setMenuOpen(false)}>
           Privacy
         </Link>
         <Link href="/#contact" onClick={(event) => handleHomeAnchorClick(event, '#contact')}>
@@ -121,11 +118,39 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
         Top
       </button>
       <footer className="site-footer">
-        <PartnerLogos compact />
-        <p>
-          Making Theatre Anti-Racist. A survey and public research campaign about race, power and theatre producing in
-          Britain.
-        </p>
+        <div className="footer-legacy">
+          <PartnerLogos compact />
+          <p>
+            Making Theatre Anti-Racist. A survey and public research campaign about race, power and theatre producing in
+            Britain.
+          </p>
+        </div>
+        <div className="footer-main">
+          <div>
+            <h2>Making Theatre Anti-Racist</h2>
+            <p>
+              Led by the Royal Central School of Speech and Drama and Rafia Hussain Productions. Supported by Arts
+              Council England and the Arts and Humanities Research Council. Outreach supported by state of the [art].
+            </p>
+          </div>
+        </div>
+        <div className="footer-links" aria-label="Footer navigation">
+          <Link href="/survey">Complete the Survey</Link>
+          <Link href="/#about">About</Link>
+          <Link href="/survey">Survey</Link>
+          <Link href="/events">Crash/Out</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/#contact">Contact</Link>
+        </div>
+        <div className="footer-contact">
+          <p>
+            Survey / research:{' '}
+            <a href="mailto:munotida.chinyanga@cssd.ac.uk">munotida.chinyanga@cssd.ac.uk</a>
+          </p>
+          <p>
+            Events: <a href="mailto:info@stateassuch.com">info@stateassuch.com</a>
+          </p>
+        </div>
       </footer>
     </>
   );

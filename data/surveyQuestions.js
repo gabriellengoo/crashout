@@ -1,5 +1,5 @@
-const option = (letter, text) => `${letter}. ${text}`;
-const otherOption = (letter) => option(letter, 'Other, please specify');
+const option = (_letter, text) => text;
+const otherOption = () => 'Other, please specify';
 
 const scale = ['1', '2', '3', '4', '5'];
 
@@ -8,9 +8,11 @@ export const surveyScreens = [
     id: 'survey_intro',
     section: 'Making Theatre Anti-Racist',
     type: 'fact',
+    variant: 'survey-intro',
     label: 'Making Theatre Anti-Racist',
+    subtitle: 'Experiences of race, power and producing in British theatre.',
     description:
-      'Experiences of race, power and producing in British theatre\n\nThis survey is for racially minoritised people working in British theatre, in any role. It takes around 10-15 minutes. You can skip any question.\n\nSome questions ask about racism and racialised harm. Please answer only what you feel able to answer.'
+      'This survey is for anyone who works in British theatre, in any role, and is racially minoritised in this country.\n\nThe survey should take around 10-15 minutes. There are no compulsory questions. You can skip any question.\n\nSome questions ask about racism, racialised harm and difficult workplace experiences. Please take your time, and only share what feels manageable.'
   },
   {
     id: 'project_statement',
@@ -19,14 +21,14 @@ export const surveyScreens = [
     variant: 'statement',
     label: 'About this project',
     description:
-      'This project is being led by the Royal Central School of Speech and Drama and Rafia Hussain Productions, and is supported by Arts Council England and the Arts and Humanities Research Council. Outreach for the survey is also being supported by state of the [art].\n\nThe goal of this project is to make recommendations about how theatre producing can be made more effectively anti-racist. This survey has been designed by Munotida Chinyanga and Tom Six, with advisory input from the project’s advisory group, for the purpose of gathering information and feedback about how models of theatre producing can work better for racially minoritised artists and workers.\n\nWe want to hear from anyone who works in British theatre, in any role, and is racially minoritised in this country.\n\nThe survey asks about you, your working life, your experiences of racism, and your experiences of EDI, equality, diversity and inclusion, and anti-racism. There are no compulsory questions, and any information that you give us that could be used to identify you will not be shared publicly.\n\nWe will ask you to identify yourself in racialised and gendered terms. We are aware that this information is often used by organisations in ways that objectify or instrumentalise people, and that you may be reluctant to give us this information for this or other reasons. In this project, this information will only be used for the purposes of interpreting the data that we collect. We therefore ask that you represent yourself as accurately as possible within the terms available.'
+      'This project is being led by the Royal Central School of Speech and Drama and Rafia Hussain Productions, and is supported by Arts Council England and the Arts and Humanities Research Council. Outreach for the survey is also being supported by state of the [art].\n\nThe goal of this project is to make recommendations about how theatre producing can be made more effectively anti-racist. This survey has been designed by Munotida Chinyanga and Tom Six, with advisory input from the project’s advisory group, for the purpose of gathering information and feedback about how models of theatre producing can work better for racially minoritised artists and workers.\n\nThe survey asks about you, your working life, your experiences of racism, and your experiences of EDI, equality, diversity and inclusion, and anti-racism. There are no compulsory questions, and any information that you give us that could be used to identify you will not be shared publicly.\n\nWe will ask you to identify yourself in racialised and gendered terms. We are aware that this information is often used by organisations in ways that objectify or instrumentalise people, and that you may be reluctant to give us this information for this or other reasons. In this project, this information will only be used for the purposes of interpreting the data that we collect. We therefore ask that you represent yourself as accurately as possible within the terms available.'
   },
   {
     id: 'section_about_you',
     section: 'About You',
     type: 'fact',
     label: 'About You',
-    description: 'These questions are about how you choose to identify yourself and how you are identified by others.'
+    description: 'These questions ask how you describe yourself, how you are identified, and how you are positioned in relation to theatre work.'
   },
   {
     id: 'identity_preferences',
@@ -185,8 +187,7 @@ export const surveyScreens = [
     section: 'Your Working Life',
     type: 'fact',
     label: 'Your Working Life',
-    description:
-      "These questions are about your working life and will enable us to analyse how people's experiences may alter in relation to their role, employment status, career progression, contracts and income."
+    description: 'These questions ask about your roles, work contexts, contracts, career stage and financial security.'
   },
   {
     id: 'main_work',
@@ -315,8 +316,7 @@ export const surveyScreens = [
     section: 'Experiencing Racism',
     type: 'fact',
     label: 'Experiencing Racism',
-    description:
-      'These questions are about experiences of racism or racialised harm in theatre and performance work, including where these experiences happen, how they take shape, and what impact they have.'
+    description: 'These questions ask about racism and racialised harm in and around theatre work. You can skip any question.'
   },
   {
     id: 'racism_locations',
@@ -463,7 +463,7 @@ export const surveyScreens = [
     variant: 'interlude',
     label: 'Sector note',
     description:
-      'A 2021 report from Freelancers Make Theatre Work found that 94% of the work created for the nation\'s stages is entirely reliant on freelancers.\n\nIn project-based work, harm can travel through reputation, recommendations, re-hiring and who is quietly avoided. The next questions ask about impact.',
+      'A 2021 report from Freelancers Make Theatre Work found that 94% of the work created for the nation’s stages is entirely reliant on freelancers.\n\nThe next questions ask about impact because harm is not only about what happened. It is also about what changes afterwards.',
     source: 'Freelancers Make Theatre Work, Big Freelancer Report 2021.'
   },
   {
@@ -474,6 +474,7 @@ export const surveyScreens = [
     description: 'Select all that apply.',
     required: false,
     otherField: true,
+    exclusiveOptions: [option('M', 'It had little or no lasting impact')],
     options: [
       option('A', 'I avoided that organisation or sector afterwards'),
       option('B', 'I became more politically active (e.g. in a union or campaigning)'),
@@ -570,8 +571,7 @@ export const surveyScreens = [
     section: 'EDI and Anti-racism',
     type: 'fact',
     label: 'EDI and Anti-racism',
-    description:
-      'These questions are about equality, diversity and inclusion (EDI), anti-racism, and how diversity is structured within theatre organisations, projects, and working environments.'
+    description: 'These questions ask how diversity, EDI and anti-racism are understood, measured and practised in theatre.'
   },
   {
     id: 'diversity_measured',
@@ -680,8 +680,7 @@ export const surveyScreens = [
     section: 'Power & Accountability',
     type: 'fact',
     label: 'Power & Accountability',
-    description:
-      'These questions are about who holds power in theatre workplaces, how concerns about racism or racialised harm are raised, and what happens when they are raised.'
+    description: 'These questions ask about reporting, accountability, power and what usually happens when issues are raised.'
   },
   {
     id: 'raising_issue_comfort',
@@ -769,7 +768,7 @@ export const surveyScreens = [
     variant: 'interlude',
     label: 'Context',
     description:
-      'The 2025 Big Freelancer Survey found that the average freelancer in the sector is unpaid for 36% of the hours they work in a week.\n\nThe next section asks what support, prevention and development need to look like in practice.',
+      'The 2025 Big Freelancer Survey also reported that 32% of respondents said more than half of the hours they worked in the sector were unpaid.\n\nThe next section asks what support, prevention and development need to look like in practice.',
     source: 'Freelancers Make Theatre Work, Big Freelancer Survey 2025.'
   },
   {
@@ -777,8 +776,7 @@ export const surveyScreens = [
     section: 'Prevention, Support and Development',
     type: 'fact',
     label: 'Prevention, Support and Development',
-    description:
-      'These questions are about what might help prevent or reduce racism or racialised harm, and how development opportunities are offered, structured, or withheld.'
+    description: 'These questions ask what might help prevent or reduce harm, and what development opportunities people have been offered.'
   },
   {
     id: 'mitigation_supports',
@@ -868,7 +866,7 @@ export const surveyScreens = [
     variant: 'interlude',
     label: 'Nearly there',
     description:
-      'Arts, culture and heritage workforces are still uneven: Creative PEC reported that 90% of workers are White and 60% come from managerial or professional households.\n\nThe final section asks what meaningful change could look like, what has worked, and who has power to make it happen.',
+      'Creative PEC found that 60% of arts, culture and heritage workers grew up in a household where the main income earner was in a managerial or professional role, compared with 43% of the whole workforce.\n\nThe final section asks what meaningful change could look like, what has worked, and who has power to make it happen.',
     source: 'Creative PEC, Arts, Culture and Heritage: Audiences and Workforce, 2024.'
   },
   {
@@ -876,8 +874,7 @@ export const surveyScreens = [
     section: 'Change and The Future',
     type: 'fact',
     label: 'Change and The Future',
-    description:
-      'These questions are about what has led to meaningful change in the theatre sector, and who has the power to make British theatre more meaningfully anti-racist.'
+    description: 'These questions ask what meaningful change could look like, what has worked, and who has power to make change happen.'
   },
   {
     id: 'feedback_faith',
@@ -926,7 +923,7 @@ export const surveyScreens = [
     placeholder: 'Type your answer here...'
   },
   {
-    id: 'power_to_make_antiracist',
+    id: 'power_to_make_anti_racist',
     section: 'Change and The Future',
     type: 'multi-select',
     label: 'In your experience, who has significant power to make British theatre more meaningfully anti-racist?',

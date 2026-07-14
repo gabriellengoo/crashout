@@ -73,14 +73,11 @@ export default function EventPage({ event }) {
         </section>
 
         <section className="cta-band">
-          <p>Did you miss the conference?</p>
+          <p>Want to contribute?</p>
           <h2>You can still take part in the survey.</h2>
           <div className="button-row center">
             <Link className="button dark" href={`/survey?source=${event.slug}`}>
               Complete the survey
-            </Link>
-            <Link className="button outline-dark" href="/missed-the-conference">
-              Missed the conference?
             </Link>
           </div>
         </section>

@@ -35,16 +35,20 @@ export default function SurveyPage() {
   const isLast = currentStep === visibleScreens.length - 1;
 
   useEffect(() => {
-    if (currentStep >= visibleScreens.length) setCurrentStep(Math.max(visibleScreens.length - 1, 0));
+    if (currentStep < visibleScreens.length) return undefined;
+    const timer = window.setTimeout(() => setCurrentStep(Math.max(visibleScreens.length - 1, 0)), 0);
+    return () => window.clearTimeout(timer);
   }, [currentStep, visibleScreens.length]);
 
   useEffect(() => {
     const frame = questionFrameRef.current;
     if (!frame || questionContentBlank) return undefined;
     if (currentSlide?.type === 'fact') {
-      setQuestionCanScroll(false);
-      setQuestionScrolledDown(false);
-      return undefined;
+      const timer = window.setTimeout(() => {
+        setQuestionCanScroll(false);
+        setQuestionScrolledDown(false);
+      }, 0);
+      return () => window.clearTimeout(timer);
     }
 
     const matrixList = frame.querySelector('.matrix-list');
@@ -65,7 +69,7 @@ export default function SurveyPage() {
       scrollTarget.removeEventListener('scroll', updateScrollState);
       window.removeEventListener('resize', updateScrollState);
     };
-  }, [currentSlide?.id, questionContentBlank]);
+  }, [currentSlide?.id, currentSlide?.type, questionContentBlank]);
 
   function setValue(id, value) {
     setFormData((current) => ({ ...current, [id]: value }));
@@ -201,7 +205,7 @@ export default function SurveyPage() {
         <div className="survey-shell">
           <p className="survey-brand">
             <span>Making Theatre Anti-Racist</span>
-            <span>Estimated time: 10-15 minutes</span>
+            <span>Estimated time: 10–15 minutes</span>
             {currentSlide.section && currentSlide.section !== 'Making Theatre Anti-Racist' ? (
               <em>{currentSlide.section}</em>
             ) : null}
@@ -246,6 +250,7 @@ export default function SurveyPage() {
         </div>
         <SurveyNavigation
           canGoBack={currentStep > 0}
+          isFirst={currentStep === 0}
           isLast={isLast}
           isSubmitting={isSubmitting}
           onBack={handleBack}

@@ -5,7 +5,7 @@ export default function MissedConference() {
   return (
     <Layout>
       <section className="page-hero">
-        <p className="eyebrow">Crash Out</p>
+        <p className="eyebrow">Crash/Out</p>
         <h1>Missed the conference?</h1>
         <p>
           You can still take part. The Making Theatre Anti-Racist survey is open to racially minoritised theatre workers
@@ -22,4 +22,10 @@ export default function MissedConference() {
       </section>
     </Layout>
   );
+}
+
+export function getStaticProps() {
+  return {
+    notFound: true
+  };
 }

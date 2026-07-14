@@ -31,11 +31,32 @@ body {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 18px);
+  scrollbar-color: var(--hot-pink) var(--black);
+  scrollbar-width: auto;
 }
 
 body {
   font-size: 16px;
   line-height: 1.45;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hot-pink);
+  border: 0;
+  border-radius: 0;
+  min-height: 96px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4faf;
 }
 
 body.landing-locked {
@@ -93,7 +114,7 @@ button:disabled {
   justify-content: space-between;
   gap: 24px;
   padding: 18px clamp(18px, 4vw, 44px);
-  border-bottom: 1px solid var(--black);
+  border-bottom: 0.5rem solid var(--black);
   background: var(--white);
   text-transform: uppercase;
   font-size: 12px;
@@ -193,6 +214,14 @@ button:disabled {
   text-decoration-color: var(--hot-pink);
 }
 
+.desktop-nav .nav-link-survey:hover,
+.desktop-nav .nav-link-survey:focus-visible,
+.mobile-menu .nav-link-survey:hover,
+.mobile-menu .nav-link-survey:focus-visible {
+  color: var(--hot-pink);
+  text-decoration-color: var(--hot-pink);
+}
+
 .nav-link-survey::after {
   content: "";
   width: 12px;
@@ -260,18 +289,97 @@ button:disabled {
 
 .site-footer {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 18px;
   padding: 28px clamp(18px, 4vw, 44px);
   border-top: 1px solid var(--line);
+  background: #eeeeea;
   font-size: 12px;
-  text-transform: uppercase;
 }
 
 .site-footer p {
   margin: 0;
+}
+
+.footer-legacy {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-main {
+  display: block;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-main h2 {
+  margin: 0 0 8px;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-main p {
+  max-width: 980px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.footer-links,
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-links a,
+.footer-contact a {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.footer-links a {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.footer-contact {
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.privacy-simple {
+  min-height: calc(100dvh - var(--header-height));
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: clamp(54px, 8vw, 112px) clamp(18px, 4vw, 44px);
+  background: var(--paper);
+  text-align: center;
+}
+
+.privacy-simple h1 {
+  max-width: 760px;
+  margin: 0 0 6px;
+  font-size: clamp(26px, 8vw, 42px);
+  font-weight: 950;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.privacy-simple p {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(18px, 4.8vw, 26px);
+  font-weight: 400;
+  line-height: 1.18;
 }
 
 .partner-strip {
@@ -435,8 +543,18 @@ button:disabled {
   align-items: stretch;
   padding: 0;
   background: var(--white);
-  border-bottom: 1px solid var(--black);
+  border-bottom: 0.5rem solid var(--black);
   text-align: left;
+}
+
+.site-logo-hero.single-hero {
+  grid-template-columns: 1fr;
+  min-height: auto;
+}
+
+.single-hero .landing-panel {
+  min-height: calc(100dvh - var(--header-height));
+  border-right: 0;
 }
 
 .landing-panel {
@@ -464,11 +582,11 @@ button:disabled {
 
 .survey-panel {
   background: var(--white);
-  border-right: 1px solid var(--black);
+  border-right: 0.5rem solid var(--black);
 }
 
 .event-panel {
-  background: var(--butter);
+  background: var(--white);
 }
 
 .event-panel::after {
@@ -889,6 +1007,14 @@ button:disabled {
   color: var(--black);
 }
 
+.muted-button,
+.muted-button:hover,
+.muted-button:focus-visible {
+  border-color: var(--line);
+  background: #eeeeea;
+  color: var(--muted);
+}
+
 .text-button,
 .text-link {
   border: 0;
@@ -970,6 +1096,10 @@ section.content-band.event-rsvp {
 }
 
 #privacy-contact.content-band.white {
+  background: #ffd8e9;
+}
+
+#privacy.content-band.white {
   background: #ffd8e9;
 }
 
@@ -1105,6 +1235,19 @@ section.content-band.event-rsvp {
   max-width: var(--max);
   margin: clamp(34px, 5vw, 64px) auto 0;
   padding: clamp(18px, 3vw, 30px) 0 0;
+  text-align: center;
+}
+
+.section-copy {
+  max-width: var(--max);
+  margin: clamp(28px, 5vw, 58px) auto 0;
+}
+
+.section-copy p {
+  max-width: 900px;
+  margin: 0 auto 16px;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.18;
   text-align: center;
 }
 
@@ -1255,6 +1398,11 @@ section.content-band.event-rsvp {
 
 .event-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.coming-soon-grid {
+  max-width: var(--max);
+  margin: clamp(34px, 5vw, 64px) auto 0;
 }
 
 .event-card h2 {
@@ -1445,7 +1593,7 @@ textarea {
 }
 
 .question-frame {
-  width: min(920px, 100%);
+  width: min(1040px, 100%);
   max-height: calc(100dvh - clamp(190px, 27dvh, 250px));
   margin: 0 auto;
   overflow-y: auto;
@@ -1482,9 +1630,10 @@ textarea {
 
 .question-screen h1 {
   margin: 0;
-  font-size: clamp(24px, min(4vw, 5.1dvh), 48px);
+  font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
   line-height: 1.04;
   text-transform: none;
+  text-align: center;
 }
 
 .fact-slide {
@@ -1498,16 +1647,23 @@ textarea {
 }
 
 .fact-slide h1 {
-  font-size: clamp(26px, min(4.5vw, 5.8dvh), 54px);
+  font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
   line-height: 1.04;
   text-transform: uppercase;
 }
 
 .fact-slide .question-description.large {
   max-width: min(760px, 100%);
-  font-size: clamp(15px, min(1.8vw, 2.4dvh), 22px);
+  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
   line-height: 1.24;
   white-space: pre-line;
+}
+
+.fact-subtitle {
+  max-width: min(760px, 100%);
+  margin: 14px 0 0;
+  font-size: clamp(18px, min(2.2vw, 2.8dvh), 28px);
+  line-height: 1.12;
 }
 
 .fact-slide-statement {
@@ -1515,12 +1671,12 @@ textarea {
 }
 
 .fact-slide-statement h1 {
-  font-size: clamp(26px, min(4.5vw, 5.8dvh), 54px);
+  font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
 }
 
 .fact-slide-statement .question-description.large {
   max-width: min(760px, 100%);
-  font-size: clamp(15px, min(1.8vw, 2.4dvh), 22px);
+  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
   line-height: 1.24;
 }
 
@@ -1529,13 +1685,39 @@ textarea {
 }
 
 .fact-slide-interlude h1 {
-  font-size: clamp(26px, min(4.5vw, 5.8dvh), 54px);
+  font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
 }
 
 .fact-slide-interlude .question-description.large {
   max-width: min(760px, 100%);
-  font-size: clamp(15px, min(1.8vw, 2.4dvh), 22px);
+  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
   line-height: 1.24;
+}
+
+.fact-slide-survey-intro {
+  padding-bottom: 16px;
+}
+
+.survey-details-compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(920px, 100%);
+  margin-top: clamp(18px, 3dvh, 30px);
+}
+
+.survey-details-compact p {
+  min-height: 92px;
+  padding: 14px;
+  font-size: clamp(13px, min(1.3vw, 1.7dvh), 16px);
+  line-height: 1.12;
+  text-align: left;
+}
+
+.survey-details-compact span {
+  margin-bottom: 10px;
+}
+
+.fact-privacy-link {
+  margin-top: clamp(12px, 2dvh, 20px);
 }
 
 .fact-source {
@@ -1565,7 +1747,7 @@ textarea {
   max-width: 760px;
   margin: 0 auto;
   color: rgba(5, 5, 5, 0.48);
-  font-size: clamp(14px, min(1.6vw, 2dvh), 20px);
+  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
@@ -1575,14 +1757,14 @@ textarea {
   max-width: 720px;
   margin: clamp(8px, 1.8dvh, 16px) auto 0;
   color: var(--muted);
-  font-size: clamp(15px, min(1.8vw, 2.4dvh), 22px);
+  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
   line-height: 1.24;
   text-align: center;
 }
 
 .question-description.large {
   color: var(--black);
-  font-size: clamp(15px, min(1.8vw, 2.4dvh), 22px);
+  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
   line-height: 1.24;
 }
 
@@ -1610,18 +1792,18 @@ textarea {
   padding: clamp(8px, 1.3dvh, 12px);
   color: var(--black);
   text-align: left;
-  font-size: clamp(15px, min(1.5vw, 2.1dvh), 20px);
+  font-size: clamp(15px, min(1.45vw, 2dvh), 19px);
   line-height: 1.18;
   font-weight: 400;
   text-transform: none;
 }
 
 .compact-question h1 {
-  font-size: clamp(24px, min(3.8vw, 4.8dvh), 44px);
+  font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
 }
 
 .compact-question .question-description {
-  font-size: clamp(15px, min(1.8vw, 2.4dvh), 22px);
+  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
 }
 
 .compact-question .field-zone {
@@ -1856,7 +2038,7 @@ textarea {
 
 .question-scroll-toggle {
   position: fixed;
-  right: calc(clamp(18px, 7vw, 120px) + 236px);
+  right: calc(clamp(18px, 7vw, 120px) + 150px);
   bottom: 28px;
   z-index: 45;
   width: 46px;
@@ -2110,7 +2292,7 @@ textarea {
 
   .survey-panel {
     border-right: 0;
-    border-bottom: 1px solid var(--black);
+    border-bottom: 0.5rem solid var(--black);
   }
 
   .landing-panel::after {
@@ -2221,6 +2403,53 @@ textarea {
 
   .site-footer {
     grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 18px;
+  }
+
+  .footer-legacy {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .footer-legacy .partner-strip.compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .footer-legacy .partner-strip.compact .partner-logo {
+    min-height: 56px;
+    padding: 8px;
+  }
+
+  .footer-legacy .partner-strip.compact img {
+    max-height: 32px;
+  }
+
+  .footer-main,
+  .footer-links,
+  .footer-contact {
+    padding-top: 10px;
+  }
+
+  .footer-links,
+  .footer-contact {
+    gap: 7px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-main h2 {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  .footer-main p,
+  .footer-contact p,
+  .footer-links a,
+  .site-footer p {
+    font-size: 11px;
+    line-height: 1.25;
   }
 
   .faq-list summary {
@@ -2352,10 +2581,12 @@ textarea {
 
   .question-scroll-toggle {
     right: auto;
-    left: calc(50% + 28px);
-    bottom: calc(17px + env(safe-area-inset-bottom));
+    left: auto;
+    right: 146px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
     width: 40px;
     height: 40px;
+    transform: none;
   }
 
   .question-scroll-toggle svg {
@@ -2517,6 +2748,11 @@ textarea {
   .survey-nav {
     padding-top: 8px;
     padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+
+  .question-scroll-toggle {
+    right: 138px;
+    bottom: calc(9px + env(safe-area-inset-bottom));
   }
 
   .thank-you-overlay {

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Making Theatre Anti-Racist">
+  <rect width="64" height="64" rx="10" fill="#050505"/>
+  <path d="M11 12h42v40H11z" fill="#ffffff"/>
+  <path d="M11 12h42v12H11z" fill="#ff1493"/>
+  <path d="M16 30h32v6H16z" fill="#050505"/>
+  <path d="M16 42h22v6H16z" fill="#2aaeb7"/>
+</svg>

@@ -56,7 +56,7 @@ export default function RsvpForm({ eventTitle }) {
       </label>
       <label className="consent-row compact">
         <input name="consent" type="checkbox" required />
-        <span>I consent to Crash Out using these details to manage my RSVP and event access needs.</span>
+        <span>I consent to Crash/Out using these details to manage my RSVP and event access needs.</span>
       </label>
       <button className="button dark" type="submit" disabled={status === 'loading'}>
         {status === 'loading' ? 'Sending' : 'Submit RSVP'}
