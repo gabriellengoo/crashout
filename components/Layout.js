@@ -120,19 +120,6 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
       <footer className="site-footer">
         <div className="footer-legacy">
           <PartnerLogos compact />
-          <p>
-            Making Theatre Anti-Racist. A survey and public research campaign about race, power and theatre producing in
-            Britain.
-          </p>
-        </div>
-        <div className="footer-main">
-          <div>
-            <h2>Making Theatre Anti-Racist</h2>
-            <p>
-              Led by the Royal Central School of Speech and Drama and Rafia Hussain Productions. Supported by Arts
-              Council England and the Arts and Humanities Research Council. Outreach supported by state of the [art].
-            </p>
-          </div>
         </div>
         <div className="footer-links" aria-label="Footer navigation">
           <Link href="/survey">Complete the Survey</Link>

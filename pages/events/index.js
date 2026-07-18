@@ -26,10 +26,6 @@ export default function EventsPage() {
             <p>Crash/Out is not about giving up. It is about refusing to keep absorbing pressure politely.</p>
           </div>
         </div>
-        <div className="pullout-grid">
-          <p>The conversation is collective.</p>
-          <p>The survey is private.</p>
-        </div>
       </section>
 
       <section className="content-band" id="events-coming-soon">

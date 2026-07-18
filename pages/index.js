@@ -1,28 +1,5 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import PartnerLogos from '../components/PartnerLogos';
-
-const audiences = [
-  'Artists',
-  'Producers',
-  'Directors / writers / dramaturgs',
-  'Performers / designers / technicians',
-  'Administrators / stage managers',
-  'Creative producers / facilitators',
-  'Researchers / educators',
-  'Freelancers, employees, and anyone else working across theatre or performance'
-];
-
-const resourcePrompts = [
-  'Rates and pay',
-  'Contracts',
-  'Producing',
-  'Development schemes',
-  'West End points, royalties or commercial theatre',
-  'Raising issues or protecting yourself',
-  'Finding support',
-  'Navigating power and opportunity'
-];
 
 export default function Home() {
   return (
@@ -30,6 +7,7 @@ export default function Home() {
       <section className="site-logo-hero" id="site" aria-labelledby="site-title">
         <div className="landing-panel survey-panel">
           <div>
+            <p className="eyebrow hero-section-label">Survey</p>
             <h1 id="site-title">Making Theatre Anti-Racist</h1>
             <p className="hero-subtitle">
               A survey and public research campaign about race, power and theatre producing in Britain.
@@ -55,13 +33,12 @@ export default function Home() {
         </div>
         <div className="landing-panel event-panel">
           <div>
-            <p className="eyebrow">Live Events</p>
+            <p className="eyebrow hero-section-label">Live Events</p>
             <h2>
               <Link className="title-static-link" href="/events">Crash/Out</Link>
             </h2>
             <p className="hero-subtitle">A live event series for racially minoritised theatre workers.</p>
             <i aria-hidden="true" />
-            <p>The conversation is collective. The survey is private.</p>
           </div>
           <div className="button-row">
             <Link className="button dark" href="/events">
@@ -80,7 +57,6 @@ export default function Home() {
             for racially minoritised artists and workers in Britain.
           </p>
         </div>
-        <PartnerLogos />
       </section>
 
       <section className="content-band white" id="learn-more">
@@ -117,11 +93,6 @@ export default function Home() {
       <section className="content-band white" id="who">
         <div className="section-head">
           <h2>Who Can Take Part?</h2>
-        </div>
-        <div className="audience-grid">
-          {audiences.map((audience) => (
-            <p key={audience}>{audience}</p>
-          ))}
         </div>
         <div className="section-copy">
           <p>
@@ -195,10 +166,6 @@ export default function Home() {
             <p>Events are currently being planned in London and Birmingham.</p>
           </div>
         </div>
-        <div className="pullout-grid">
-          <p>The conversation is collective.</p>
-          <p>The survey is private.</p>
-        </div>
         <div className="button-row center">
           <button className="button muted-button" type="button" disabled>
             Event details coming soon
@@ -221,26 +188,6 @@ export default function Home() {
             <p className="event-meta">Event details coming soon</p>
           </article>
         </div>
-      </section>
-
-      <section className="content-band" id="resource-pack">
-        <div className="split soft-split">
-          <h2>Resource Pack</h2>
-          <div>
-            <p className="large-copy">Help build the resource pack we all wish existed earlier.</p>
-            <p>
-              Alongside the survey, we are gathering questions and needs for a future resource pack for racially
-              minoritised theatre workers.
-            </p>
-            <p>What do you wish someone had explained to you earlier about the theatre industry?</p>
-          </div>
-        </div>
-        <div className="audience-grid resource-grid">
-          {resourcePrompts.map((prompt) => (
-            <p key={prompt}>{prompt}</p>
-          ))}
-        </div>
-        <p className="section-note resource-note">Resource pack questions are separate from the main survey.</p>
       </section>
 
       <section className="content-band white" id="privacy">
@@ -272,8 +219,8 @@ export default function Home() {
                 munotida.chinyanga@cssd.ac.uk
               </a>
             </p>
-            <p>For Crash/Out event questions, contact:</p>
             <p>
+              For Crash/Out event questions, contact:{' '}
               <a className="inline-link" href="mailto:info@stateassuch.com">
                 info@stateassuch.com
               </a>
