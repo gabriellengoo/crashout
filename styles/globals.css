@@ -305,6 +305,27 @@ button:disabled {
   justify-items: start;
 }
 
+.footer-main {
+  display: grid;
+  gap: 6px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-main h2 {
+  margin: 0 0 4px;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-main p {
+  max-width: 980px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
 .footer-links,
 .footer-contact {
   display: flex;
@@ -580,7 +601,7 @@ button:disabled {
 .site-logo-hero h1 {
   max-width: 800px;
   margin: 0;
-  font-size: clamp(60px, min(7.6vw, 11.8dvh), 126px);
+  font-size: clamp(46px, min(5.9vw, 9.2dvh), 94px);
   line-height: 0.9;
   text-transform: uppercase;
 }
@@ -588,14 +609,14 @@ button:disabled {
 .site-logo-hero h2 {
   max-width: 680px;
   margin: 0;
-  font-size: clamp(58px, min(7vw, 11dvh), 116px);
+  font-size: clamp(48px, min(5.8vw, 9.2dvh), 92px);
   line-height: 0.9;
   text-transform: uppercase;
 }
 
-.hero-section-label {
-  margin-bottom: clamp(14px, 2vw, 28px);
-  font-size: clamp(18px, min(2.2vw, 3dvh), 34px);
+.site-logo-hero .hero-section-label {
+  margin-bottom: clamp(18px, 2.6vw, 36px);
+  font-size: clamp(28px, min(3.4vw, 4.8dvh), 52px);
   font-weight: 950;
   line-height: 0.95;
 }
@@ -1287,6 +1308,11 @@ section.content-band.event-rsvp {
   margin-bottom: 0;
 }
 
+#who .section-head {
+  justify-content: center;
+  text-align: center;
+}
+
 .section-note {
   max-width: 320px;
   margin: 0;
@@ -1547,6 +1573,12 @@ textarea {
   background: var(--white);
 }
 
+.survey-shell-intro {
+  justify-content: center;
+  padding-top: clamp(82px, 12dvh, 112px);
+  padding-bottom: clamp(82px, 12dvh, 112px);
+}
+
 .survey-brand {
   position: fixed;
   top: 24px;
@@ -1638,11 +1670,14 @@ textarea {
 
 .fact-slide-survey-intro {
   width: min(1220px, 100%);
+  min-height: auto;
+  align-content: start;
+  padding-top: 0;
 }
 
 .fact-slide-survey-intro h1 {
-  font-size: clamp(42px, min(6.4vw, 8dvh), 76px);
-  line-height: 1.02;
+  font-size: clamp(44px, min(5vw, 8dvh), 64px);
+  line-height: 1;
   text-transform: none;
 }
 
@@ -1689,9 +1724,11 @@ textarea {
 }
 
 .fact-slide-survey-intro .question-description.large {
-  max-width: min(1180px, 100%);
-  font-size: clamp(22px, min(2.15vw, 3dvh), 30px);
+  max-width: min(1200px, 100%);
+  margin-top: clamp(38px, 5.8dvh, 48px);
+  font-size: clamp(24px, min(2.1vw, 3.2dvh), 28px);
   line-height: 1.48;
+  white-space: normal;
 }
 
 .survey-details-compact {
@@ -2270,15 +2307,15 @@ textarea {
   }
 
   .site-logo-hero h1 {
-    font-size: clamp(43px, min(13.5vw, 9.4dvh), 76px);
+    font-size: clamp(34px, min(10.5vw, 7.4dvh), 58px);
   }
 
   .site-logo-hero h2 {
-    font-size: clamp(48px, min(15vw, 10dvh), 82px);
+    font-size: clamp(38px, min(11.5vw, 8dvh), 62px);
   }
 
-  .hero-section-label {
-    font-size: clamp(21px, min(6vw, 4dvh), 32px);
+  .site-logo-hero .hero-section-label {
+    font-size: clamp(28px, min(8vw, 5.2dvh), 42px);
   }
 
   .site-logo-hero .hero-subtitle {
@@ -2460,6 +2497,12 @@ textarea {
     padding: clamp(96px, 15dvh, 124px) 18px clamp(72px, 12dvh, 104px);
   }
 
+  .survey-shell-intro {
+    justify-content: center;
+    padding-top: clamp(88px, 13dvh, 112px);
+    padding-bottom: clamp(84px, 12dvh, 104px);
+  }
+
   .survey-brand {
     left: 18px;
     right: 18px;
@@ -2503,18 +2546,21 @@ textarea {
   }
 
   .fact-slide-survey-intro h1 {
-    font-size: clamp(30px, min(9vw, 5.5dvh), 42px);
+    font-size: clamp(32px, min(9.5vw, 5.8dvh), 42px);
+    line-height: 1.02;
   }
 
   .fact-slide-survey-intro .fact-subtitle {
-    margin: 14px 0 clamp(22px, 3.2dvh, 32px);
+    margin: 16px 0 0;
     font-size: clamp(20px, min(5.2vw, 3dvh), 26px);
     line-height: 1.16;
   }
 
   .fact-slide-survey-intro .question-description.large {
+    margin-top: clamp(34px, 5dvh, 44px);
     font-size: clamp(16px, min(4.4vw, 2.45dvh), 20px);
     line-height: 1.32;
+    white-space: normal;
   }
 
   .compact-question h1 {

@@ -121,6 +121,12 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
         <div className="footer-legacy">
           <PartnerLogos compact />
         </div>
+        <div className="footer-main">
+          <h2>Making Theatre Anti-Racist</h2>
+          <p>Led by the Royal Central School of Speech and Drama and Rafia Hussain Productions.</p>
+          <p>Supported by Arts Council England and the Arts and Humanities Research Council.</p>
+          <p>Outreach supported by state of the [art].</p>
+        </div>
         <div className="footer-links" aria-label="Footer navigation">
           <Link href="/survey">Complete the Survey</Link>
           <Link href="/#about">About</Link>

@@ -202,7 +202,7 @@ export default function SurveyPage() {
     <Layout bare>
       <div className="survey-page">
         <ProgressBar current={currentStep + 1} total={visibleScreens.length} />
-        <div className="survey-shell">
+          <div className={currentSlide.variant === 'survey-intro' ? 'survey-shell survey-shell-intro' : 'survey-shell'}>
           <p className="survey-brand">
             <span>Making Theatre Anti-Racist</span>
             <span>Estimated time: 10–15 minutes</span>
