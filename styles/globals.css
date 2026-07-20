@@ -320,10 +320,11 @@ button:disabled {
 }
 
 .footer-main p {
-  max-width: 980px;
+  max-width: 760px;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.35;
+  text-wrap: balance;
 }
 
 .footer-links,
@@ -560,7 +561,7 @@ button:disabled {
   min-height: calc(100dvh - var(--header-height));
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: clamp(18px, 2.4vw, 34px);
   padding: clamp(36px, 6vw, 72px) clamp(32px, 6vw, 72px);
   overflow: hidden;
@@ -587,6 +588,10 @@ button:disabled {
   background: var(--white);
 }
 
+.event-panel .hero-section-label {
+  text-align: left;
+}
+
 .event-panel::after {
   right: -6%;
   top: 34%;
@@ -599,41 +604,47 @@ button:disabled {
 }
 
 .site-logo-hero h1 {
-  max-width: 800px;
+  max-width: 640px;
   margin: 0;
-  font-size: clamp(46px, min(5.9vw, 9.2dvh), 94px);
-  line-height: 0.9;
+  font-size: clamp(30px, min(3.6vw, 5.2dvh), 56px);
+  line-height: 0.95;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .site-logo-hero h2 {
-  max-width: 680px;
+  max-width: 640px;
   margin: 0;
-  font-size: clamp(48px, min(5.8vw, 9.2dvh), 92px);
-  line-height: 0.9;
+  font-size: clamp(30px, min(3.6vw, 5.2dvh), 56px);
+  line-height: 0.95;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .site-logo-hero .hero-section-label {
+  max-width: 720px;
   margin-bottom: clamp(18px, 2.6vw, 36px);
-  font-size: clamp(28px, min(3.4vw, 4.8dvh), 52px);
+  font-size: clamp(46px, min(5.9vw, 9.2dvh), 94px);
   font-weight: 950;
-  line-height: 0.95;
+  line-height: 0.9;
+  text-wrap: balance;
 }
 
 .site-logo-hero .hero-subtitle {
-  max-width: 720px;
+  max-width: 640px;
   margin: clamp(14px, 1.8vw, 22px) 0 0;
   font-size: clamp(21px, min(2.15vw, 3.1dvh), 34px);
   line-height: 1.05;
   text-transform: none;
+  text-wrap: balance;
 }
 
 .landing-panel p:not(.eyebrow):not(.hero-subtitle):not(.hero-note) {
-  max-width: 600px;
+  max-width: 560px;
   margin: clamp(12px, 1.6vw, 20px) 0 0;
   font-size: clamp(16px, min(1.55vw, 2.1dvh), 22px);
   line-height: 1.2;
+  text-wrap: pretty;
 }
 
 .hero-note {
@@ -746,10 +757,11 @@ button:disabled {
 }
 
 .intro-copy p:not(.eyebrow) {
-  max-width: 740px;
+  max-width: 680px;
   margin: 18px 0 0;
   font-size: clamp(18px, 2.2vw, 30px);
   line-height: 1.12;
+  text-wrap: balance;
 }
 
 .resource-peek {
@@ -830,10 +842,11 @@ button:disabled {
 }
 
 .resource-peek p {
-  max-width: 430px;
+  max-width: 360px;
   margin: 5px 0 0;
   font-size: clamp(13px, 1.2vw, 16px);
   line-height: 1.12;
+  text-wrap: balance;
 }
 
 .resource-peek .button {
@@ -946,9 +959,10 @@ button:disabled {
 
 .hero-content > p:not(.eyebrow):not(.hero-subtitle),
 .page-hero > p:not(.eyebrow) {
-  max-width: 680px;
+  max-width: 620px;
   font-size: clamp(18px, 2.1vw, 28px);
   line-height: 1.18;
+  text-wrap: balance;
 }
 
 .button-row {
@@ -1156,9 +1170,11 @@ section.content-band.event-rsvp {
 
 .split p,
 .large-copy {
+  max-width: 620px;
   margin-top: 0;
   font-size: clamp(17px, 1.55vw, 23px);
   line-height: 1.22;
+  text-wrap: balance;
 }
 
 .section-intro {
@@ -1245,11 +1261,12 @@ section.content-band.event-rsvp {
 }
 
 .section-copy p {
-  max-width: 900px;
+  max-width: 740px;
   margin: 0 auto 16px;
   font-size: clamp(18px, 2vw, 28px);
   line-height: 1.18;
   text-align: center;
+  text-wrap: balance;
 }
 
 .inline-link {
@@ -1318,10 +1335,11 @@ section.content-band.event-rsvp {
   margin: 0;
   color: var(--muted);
   font-size: 15px;
+  text-wrap: balance;
 }
 
 .audience-note {
-  max-width: 720px;
+  max-width: 620px;
   margin: clamp(30px, 5vw, 64px) auto 0;
   padding: clamp(18px, 3vw, 32px) 0;
   text-align: center;
@@ -1395,11 +1413,12 @@ section.content-band.event-rsvp {
 }
 
 .faq-list p {
-  max-width: 680px;
+  max-width: 560px;
   margin: 0;
   padding: 0 clamp(18px, 3vw, 34px) clamp(22px, 3vw, 34px);
   color: var(--muted);
   font-size: 18px;
+  text-wrap: balance;
 }
 
 .event-grid {
@@ -1419,7 +1438,8 @@ section.content-band.event-rsvp {
 }
 
 .event-card p {
-  max-width: 540px;
+  max-width: 460px;
+  text-wrap: balance;
 }
 
 .event-meta {
@@ -1437,6 +1457,7 @@ section.content-band.event-rsvp {
   font-size: clamp(18px, 2vw, 26px);
   font-weight: 800;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .cta-band h2 {
@@ -1645,11 +1666,13 @@ textarea {
 }
 
 .question-screen h1 {
+  max-width: min(940px, 100%);
   margin: 0;
   font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
   line-height: 1.04;
   text-transform: none;
   text-align: center;
+  text-wrap: balance;
 }
 
 .fact-slide {
@@ -1666,6 +1689,7 @@ textarea {
   font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
   line-height: 1.04;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .fact-slide-survey-intro {
@@ -1676,23 +1700,25 @@ textarea {
 }
 
 .fact-slide-survey-intro h1 {
-  font-size: clamp(44px, min(5vw, 8dvh), 64px);
-  line-height: 1;
+  font-size: clamp(28px, min(4.5vw, 5.8dvh), 54px);
+  line-height: 1.04;
   text-transform: none;
 }
 
 .fact-slide .question-description.large {
-  max-width: min(920px, 100%);
+  max-width: min(700px, 100%);
   font-size: clamp(16px, min(1.6vw, 2.2dvh), 21px);
   line-height: 1.28;
   white-space: pre-line;
+  text-wrap: balance;
 }
 
 .fact-subtitle {
-  max-width: min(920px, 100%);
+  max-width: min(760px, 100%);
   margin: 18px 0 clamp(34px, 5dvh, 56px);
-  font-size: clamp(22px, min(2.4vw, 3dvh), 30px);
-  line-height: 1.15;
+  font-size: clamp(18px, min(2vw, 2.6dvh), 24px);
+  line-height: 1.18;
+  text-wrap: balance;
 }
 
 .fact-slide-statement {
@@ -1704,9 +1730,10 @@ textarea {
 }
 
 .fact-slide-statement .question-description.large {
-  max-width: min(760px, 100%);
-  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
-  line-height: 1.24;
+  max-width: min(960px, 100%);
+  font-size: clamp(16px, min(1.6vw, 2.2dvh), 21px);
+  line-height: 1.28;
+  text-wrap: pretty;
 }
 
 .fact-slide-interlude {
@@ -1718,17 +1745,18 @@ textarea {
 }
 
 .fact-slide-interlude .question-description.large {
-  max-width: min(760px, 100%);
-  font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
-  line-height: 1.24;
+  max-width: min(860px, 100%);
+  font-size: clamp(16px, min(1.6vw, 2.2dvh), 21px);
+  line-height: 1.28;
 }
 
 .fact-slide-survey-intro .question-description.large {
-  max-width: min(1200px, 100%);
+  max-width: min(960px, 100%);
   margin-top: clamp(38px, 5.8dvh, 48px);
-  font-size: clamp(24px, min(2.1vw, 3.2dvh), 28px);
-  line-height: 1.48;
-  white-space: normal;
+  font-size: clamp(16px, min(1.6vw, 2.2dvh), 21px);
+  line-height: 1.28;
+  white-space: pre-line;
+  text-wrap: pretty;
 }
 
 .survey-details-compact {
@@ -1754,13 +1782,14 @@ textarea {
 }
 
 .fact-source {
-  max-width: min(680px, 100%);
+  max-width: min(520px, 100%);
   margin: clamp(12px, 2dvh, 22px) 0 0;
   color: var(--muted);
   font-size: clamp(9px, min(1vw, 1.4dvh), 12px);
   font-weight: 800;
   line-height: 1.25;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .question-heading-row {
@@ -1784,6 +1813,7 @@ textarea {
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
+  text-wrap: balance;
 }
 
 .question-description {
@@ -1793,6 +1823,7 @@ textarea {
   font-size: clamp(16px, min(1.8vw, 2.4dvh), 22px);
   line-height: 1.24;
   text-align: center;
+  text-wrap: pretty;
 }
 
 .question-description.large {
@@ -1929,9 +1960,10 @@ textarea {
   max-width: 720px;
   margin: 0 auto;
   color: var(--black);
-  font-size: clamp(12px, min(1.2vw, 1.5dvh), 15px);
-  line-height: 1.25;
+  font-size: clamp(16px, min(1.65vw, 2.1dvh), 21px);
+  line-height: 1.22;
   text-align: left;
+  text-wrap: pretty;
 }
 
 .scale-slider-key p {
@@ -2307,15 +2339,19 @@ textarea {
   }
 
   .site-logo-hero h1 {
-    font-size: clamp(34px, min(10.5vw, 7.4dvh), 58px);
+    max-width: 520px;
+    font-size: clamp(24px, min(7.4vw, 5.1dvh), 40px);
+    line-height: 0.98;
   }
 
   .site-logo-hero h2 {
-    font-size: clamp(38px, min(11.5vw, 8dvh), 62px);
+    max-width: 520px;
+    font-size: clamp(24px, min(7.4vw, 5.1dvh), 40px);
+    line-height: 0.98;
   }
 
   .site-logo-hero .hero-section-label {
-    font-size: clamp(28px, min(8vw, 5.2dvh), 42px);
+    font-size: clamp(34px, min(10.5vw, 7.4dvh), 58px);
   }
 
   .site-logo-hero .hero-subtitle {
@@ -2546,8 +2582,8 @@ textarea {
   }
 
   .fact-slide-survey-intro h1 {
-    font-size: clamp(32px, min(9.5vw, 5.8dvh), 42px);
-    line-height: 1.02;
+    font-size: clamp(24px, min(7vw, 5.4dvh), 38px);
+    line-height: 1.04;
   }
 
   .fact-slide-survey-intro .fact-subtitle {
@@ -2560,7 +2596,12 @@ textarea {
     margin-top: clamp(34px, 5dvh, 44px);
     font-size: clamp(16px, min(4.4vw, 2.45dvh), 20px);
     line-height: 1.32;
-    white-space: normal;
+    white-space: pre-line;
+  }
+
+  .scale-slider-key {
+    font-size: clamp(14px, min(3.7vw, 2.4dvh), 18px);
+    line-height: 1.22;
   }
 
   .compact-question h1 {
@@ -2851,7 +2892,7 @@ textarea {
   }
 
   .fact-slide-survey-intro h1 {
-    font-size: clamp(30px, min(9vw, 5.5dvh), 40px);
+    font-size: 21px;
   }
 
   .fact-slide-survey-intro .question-description.large {
