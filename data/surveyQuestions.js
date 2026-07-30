@@ -6,22 +6,22 @@ const scale = ['1', '2', '3', '4', '5'];
 export const surveyScreens = [
   {
     id: 'survey_intro',
-    section: 'Making Theatre Anti-Racist',
+    section: 'Making Theatre Antiracist',
     type: 'fact',
     variant: 'survey-intro',
-    label: 'Making Theatre Anti-Racist',
-    subtitle: 'Experiences of race, power and producing in British theatre.',
+    label: 'Making Theatre Antiracist: Structural Solutions to Institutional Racism in British Theatre',
+    subtitle: 'Experiences of race, power and production in British theatre.',
     description:
       'This survey is for anyone who works in British theatre, in any role, and is racially minoritised in this country.\n\nThe survey should take around 10-15 minutes. There are no compulsory questions. You can skip any question.\n\nSome questions ask about racism, racialised harm and difficult workplace experiences. Please take your time, and only share what feels manageable.'
   },
   {
     id: 'project_statement',
-    section: 'Making Theatre Anti-Racist',
+    section: 'Making Theatre Antiracist',
     type: 'fact',
     variant: 'statement',
     label: 'About this project',
     description:
-      'This project is being led by the Royal Central School of Speech and Drama and Rafia Hussain Productions, and is supported by Arts Council England and the Arts and Humanities Research Council. Outreach for the survey is also being supported by state of the [art].\n\nThe goal of this project is to make recommendations about how theatre producing can be made more effectively anti-racist. This survey has been designed by Munotida Chinyanga and Tom Six, with advisory input from the project’s advisory group, for the purpose of gathering information and feedback about how models of theatre producing can work better for racially minoritised artists and workers.\n\nThe survey asks about you, your working life, your experiences of racism, and your experiences of EDI, equality, diversity and inclusion, and anti-racism. There are no compulsory questions, and any information that you give us that could be used to identify you will not be shared publicly.\n\nWe will ask you to identify yourself in racialised and gendered terms. We are aware that this information is often used by organisations in ways that objectify or instrumentalise people, and that you may be reluctant to give us this information for this or other reasons. In this project, this information will only be used for the purposes of interpreting the data that we collect. We therefore ask that you represent yourself as accurately as possible within the terms available.'
+      'This project is being led by the Royal Central School of Speech and Drama and Rafia Hussain Productions, and is supported by Arts Council England and the Arts and Humanities Research Council. Outreach for the survey is also being supported by state of the [art].\n\nThe goal of this project is to make recommendations about how theatre production can be made more effectively antiracist. This survey has been designed by Munotida Chinyanga and Tom Six, with input from the project’s advisory group, for the purpose of gathering information and feedback about how models of theatre production can work better for racially minoritised artists and workers.\n\nThe survey asks about you, your working life, your experiences of racism, and your experiences of EDI (equality, diversity and inclusion) and antiracism. There are no compulsory questions, and any information that you give us that could be used to identify you will not be shared publicly.\n\nWe will ask you to identify yourself in racialised and gendered terms. We are aware that this information is often used by organisations in ways that objectify or instrumentalise people, and that you may be reluctant to give us this information for this or other reasons. In this project, this information will only be used for the purposes of interpreting the data that we collect. We therefore ask that you represent yourself as accurately as possible within the terms available.'
   },
   {
     id: 'section_about_you',
@@ -34,26 +34,26 @@ export const surveyScreens = [
     id: 'identity_preferences',
     section: 'About You',
     type: 'multi-select',
-    label: 'Which of the following feel important to how you describe yourself, your position, or your perspective?',
+    label: 'Which of the following are most important to how you define yourself?',
     description: 'Select all that apply.',
     required: false,
     otherField: true,
     options: [
-      option('A', 'In terms of identity categories (e.g. as a queer Black woman)'),
-      option('B', 'In terms of what you do professionally'),
-      option('C', 'In relation to aesthetic choices or preferences (e.g. about your appearance or taste)'),
-      option('D', 'As a member of a particular ethnic group (e.g. Yoruba, Jewish, Welsh etc)'),
-      option('E', 'In terms of your nationality (e.g. British, Nigerian, American)'),
-      option('F', 'As a member of a religious group (e.g. Muslim, Jewish, Christian etc)'),
-      option('G', 'In terms of your place of birth'),
-      option('H', 'In relation to habitual activities or hobbies (e.g. as a skater, musician, runner)'),
-      option('I', 'In terms of your relationships with other people (e.g. as a parent or friend)'),
-      option('J', 'In terms of your background or material experiences (e.g. as a migrant or survivor, or being from the class you grew up in)'),
-      option('K', 'In terms of your socio-economic position'),
-      option('L', 'In relation to your educational background'),
-      option('M', 'In terms of your character or characteristic behaviour'),
+      option('A', 'Identity categories (e.g. queer, Black, woman)'),
+      option('B', 'What you do professionally'),
+      option('C', 'Aesthetic choices or preferences (e.g. appearance or taste)'),
+      option('D', 'Ethnic group (e.g. Yoruba, Jewish, Welsh etc)'),
+      option('E', 'Nationality (e.g. British, Nigerian, American)'),
+      option('F', 'Religious group (e.g. Muslim, Jewish, Christian etc)'),
+      option('G', 'Place of birth'),
+      option('H', 'Habitual activities or hobbies (e.g. skater, musician, runner)'),
+      option('I', 'Relationships with other people (e.g. parent or friend)'),
+      option('J', 'Background or material experiences (e.g. migrant, survivor, or the class you grew up in)'),
+      option('K', 'Socio-economic position'),
+      option('L', 'Educational background'),
+      option('M', 'Character or characteristic behaviour'),
       option('N', 'Political identity, values or commitments'),
-      option('O', 'Disabled, D/deaf, neurodivergent, chronically ill, or access-related identity'),
+      option('O', 'As disabled, D/deaf, neurodivergent, chronically ill, or access-related'),
       otherOption('P')
     ]
   },
@@ -102,7 +102,7 @@ export const surveyScreens = [
     id: 'working_life_identified',
     section: 'About You',
     type: 'multi-select',
-    label: 'In your theatre work, in which of the following ways do you think you are most often identified?',
+    label: 'How do you think you are most often identified?',
     description: 'Select all that apply.',
     required: false,
     otherField: true,
@@ -179,7 +179,7 @@ export const surveyScreens = [
     variant: 'interlude',
     label: 'Sector note',
     description:
-      'Over 200,000 self-employed and freelance workers make up around 70% of the UK theatre workforce.\n\nThe next section asks about work, roles, contracts and income because producing structures shape who gets in, who gets paid and who is able to stay.',
+      'Over 200,000 self-employed and freelance workers make up around 70% of the UK theatre workforce.\n\nThe next section asks about work, roles, contracts and income because production structures shape who gets in, who gets paid and who is able to stay.',
     source: 'Freelancers Make Theatre Work and Stage Directors UK written evidence to UK Parliament, 2024.'
   },
   {
@@ -277,7 +277,6 @@ export const surveyScreens = [
       option('E', 'Dance'),
       option('F', 'Cabaret'),
       option('G', 'Circus'),
-      option('H', 'Drag'),
       option('I', 'Youth theatre / participatory / community settings'),
       option('J', 'Festivals / outdoor / site-based work'),
       option('K', 'Education / conservatoire / university'),
@@ -322,7 +321,7 @@ export const surveyScreens = [
     id: 'racism_locations',
     section: 'Experiencing Racism',
     type: 'multi-select',
-    label: 'Where do you most often experience racism or racialised harm?',
+    label: 'Where in your theatre work do you most often experience racism or racialised harm?',
     description: 'Select all that apply.',
     required: false,
     otherField: true,
@@ -333,7 +332,7 @@ export const surveyScreens = [
       option('D', 'Workshops'),
       option('E', 'Rehearsals'),
       option('F', 'Design decisions (e.g. costume or sound)'),
-      option('G', 'Producing or management decisions'),
+      option('G', 'Production or management decisions'),
       option('H', 'Marketing, press or PR'),
       option('I', 'Touring'),
       option('J', 'Executive meetings'),
@@ -563,19 +562,19 @@ export const surveyScreens = [
     variant: 'interlude',
     label: 'Context',
     description:
-      'Creative UK\'s 2025 Diversity Leaders report found that people from ethnic minority heritage make up 15.9% of the UK workforce, but just over 9.8% of managers and directors across the cultural sector.\n\nThe next section asks how diversity and anti-racism are understood, measured and practised.',
+      'Creative UK\'s 2025 Diversity Leaders report found that people from ethnic minority heritage make up 15.9% of the UK workforce, but just over 9.8% of managers and directors across the cultural sector.\n\nThe next section asks how diversity and antiracism are understood, measured and practised.',
     source: 'Creative UK, Diversity Leaders Report 2025.'
   },
   {
     id: 'section_edi',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'fact',
-    label: 'EDI and Anti-racism',
-    description: 'These questions ask how diversity, EDI and anti-racism are understood, measured and practised in theatre.'
+    label: 'EDI and Antiracism',
+    description: 'These questions ask how diversity, EDI (equality, diversity and inclusion) and antiracism are understood, measured and practised in theatre.'
   },
   {
     id: 'diversity_measured',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'multi-select',
     label: 'In your experience, how is racial diversity usually understood or measured in British theatre?',
     description: 'Select all that apply.',
@@ -584,13 +583,13 @@ export const surveyScreens = [
     options: [
       option('A', 'By the number of racially minoritised people involved'),
       option('B', 'By who is visible on stage or in public-facing roles'),
-      option('C', 'By who is in leadership or decision-making roles'),
+      option('C', 'By who is in leadership or decision making roles'),
       option('D', 'By who is present in casts, creative teams or production teams'),
       option('E', 'By whether racially minoritised people are supported into long-term careers, not just short-term projects'),
       option('F', 'By the stories, cultures or communities represented in the work'),
       option('G', 'By audience or community engagement'),
       option('H', 'In relation to funding, marketing or reporting requirements'),
-      option('I', 'In terms of anti-racist practice, care or accountability'),
+      option('I', 'Antiracist practice, care or accountability'),
       option('J', 'In relation to class, politics, disability, gender or other intersecting factors'),
       option('K', 'It is often treated superficially or tokenistically'),
       option('L', 'I do not think it is meaningfully measured'),
@@ -600,7 +599,7 @@ export const surveyScreens = [
   },
   {
     id: 'work_without_reduction',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'segmented',
     label: 'How often have you felt able to work without being reduced to your racialised identity or perceived diversity value?',
     description: '1 = Never. 5 = As much as I have wanted.',
@@ -613,7 +612,7 @@ export const surveyScreens = [
   },
   {
     id: 'identity_shaped_non_race_projects',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'multi-select',
     label: 'When working on projects not explicitly about race or identity, has your racial identity, cultural background, or experience as a racially minoritised person affected how your work is interpreted, programmed, marketed, funded or valued? If so, in what ways?',
     description: 'Select all that apply.',
@@ -633,7 +632,7 @@ export const surveyScreens = [
   },
   {
     id: 'non_race_projects_context',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'textarea',
     label: 'You can use this space to expand on your answer if you wish.',
     required: false,
@@ -641,7 +640,7 @@ export const surveyScreens = [
   },
   {
     id: 'work_misrepresented',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'segmented',
     label: 'How often have you found your work framed in relation to your racialised identity in a way that misrepresented it?',
     description: '1 = Never happened. 5 = Happens all the time.',
@@ -654,7 +653,7 @@ export const surveyScreens = [
   },
   {
     id: 'diversity_data_misrepresent',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'segmented',
     label: 'Have you experienced data about diversity being used to misrepresent your experience of working with or for an organisation?',
     description: '1 = No, never. 5 = Yes, always.',
@@ -667,7 +666,7 @@ export const surveyScreens = [
   },
   {
     id: 'misrepresentation_context',
-    section: 'EDI and Anti-racism',
+    section: 'EDI and Antiracism',
     type: 'textarea',
     label: 'If you answered that your work is sometimes or often misrepresented in this way, you can use this space to expand on that answer if you wish.',
     description: 'Answer only if relevant.',
@@ -787,7 +786,7 @@ export const surveyScreens = [
     required: false,
     otherField: true,
     options: [
-      option('A', 'Mandated anti-racism training'),
+      option('A', 'Mandated antiracism training'),
       option('B', 'Not being the only racially minoritised person in the room'),
       option('C', 'Having a named, independent person to report to'),
       option('D', 'There being clear consequences for harm'),
@@ -798,12 +797,12 @@ export const surveyScreens = [
       option('I', 'More time and resources for the organisation or project'),
       option('J', 'Protection from retaliation after raising concerns'),
       option('K', 'Clear and transparent reporting processes'),
-      option('L', 'More diversity in leadership and decision-making roles'),
-      option('M', 'Transparent decision-making (casting, hiring, programming)'),
+      option('L', 'More diversity in leadership and decision making roles'),
+      option('M', 'Transparent decision making (casting, hiring, programming)'),
       option('N', 'Better onboarding and shared expectations at the start of projects'),
       option('O', 'Paid time for care, reflection, and conflict resolution'),
       option('P', 'Access to mediation, advocacy, or union support'),
-      option('Q', 'Better budgeting for anti-racist practice and support'),
+      option('Q', 'Better budgeting for antiracist practice and support'),
       otherOption('R')
     ]
   },
@@ -900,7 +899,7 @@ export const surveyScreens = [
     options: [
       option('A', 'Funders changing their policies'),
       option('B', 'Bold programming decisions'),
-      option('C', 'Producing organisations changing their practices'),
+      option('C', 'Production organisations changing their practices'),
       option('D', 'Organisations hiring different leaders'),
       option('E', 'Organised activism (e.g. unions or advocacy groups)'),
       option('F', 'Informal networks'),
@@ -918,7 +917,7 @@ export const surveyScreens = [
     id: 'real_step',
     section: 'Change and The Future',
     type: 'textarea',
-    label: 'Have you experienced (or heard of) a structure, policy, or producing approach that felt like a real step in the right direction? If so, what was it, and why did it work?',
+    label: 'Have you experienced (or heard of) a structure, policy, or production approach that felt like a real step in the right direction? If so, what was it, and why did it work?',
     required: false,
     placeholder: 'Type your answer here...'
   },
@@ -926,7 +925,7 @@ export const surveyScreens = [
     id: 'power_to_make_anti_racist',
     section: 'Change and The Future',
     type: 'multi-select',
-    label: 'In your experience, who has significant power to make British theatre more meaningfully anti-racist?',
+    label: 'In your experience, who has significant power to make British theatre more meaningfully antiracist?',
     description: 'Select all that apply.',
     required: false,
     otherField: true,

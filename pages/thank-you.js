@@ -19,10 +19,10 @@ export default function ThankYou() {
   return (
     <Layout bare>
       <section className="thank-you-overlay">
-        <p className="survey-brand-lockup">Making Theatre Anti-Racist</p>
+        <p className="survey-brand-lockup">Making Theatre Antiracist</p>
         <p className="eyebrow">Survey submitted</p>
-        <h1>Thank you for contributing to Making Theatre Anti-Racist.</h1>
-        <p>Your response helps build clearer recommendations for anti-racist theatre producing. Redirecting to Crash/Out events.</p>
+        <h1>Thank you for contributing to Making Theatre Antiracist.</h1>
+        <p>Your response helps build clearer recommendations for antiracist theatre production. Redirecting to Crash/Out events.</p>
         <div className="button-row center">
           <Link className="button dark" href="/events">
             See events

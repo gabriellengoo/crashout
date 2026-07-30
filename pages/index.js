@@ -8,17 +8,17 @@ export default function Home() {
         <div className="landing-panel survey-panel">
           <div>
             <p className="eyebrow hero-section-label">Survey</p>
-            <h1 id="site-title">Making Theatre Anti-Racist</h1>
+            <h1 id="site-title">Making Theatre Antiracist: Structural Solutions to Institutional Racism in British Theatre</h1>
             <p className="hero-subtitle">
-              A survey and public research campaign about race, power and theatre producing in Britain.
+              A survey and public research campaign about race, power and theatre production in Britain.
             </p>
             <p>
               This project is gathering information and feedback from racially minoritised theatre workers about how
-              theatre producing can work better, more fairly and more effectively.
+              theatre production can work better, more fairly and more effectively.
             </p>
             <p>
-              We want to understand people&apos;s working lives, experiences of racism, experiences of EDI and
-              anti-racism, and what meaningful change could look like across the sector.
+              We want to understand people&apos;s working lives, experiences of racism, experiences of EDI (equality,
+              diversity and inclusion) and antiracism, and what meaningful change could look like across the sector.
             </p>
             <p className="hero-note">10–15 minutes. You can skip any question.</p>
           </div>
@@ -51,9 +51,9 @@ export default function Home() {
       <section className="intro-band" id="about">
         <div className="intro-copy">
           <p className="eyebrow">About the project</p>
-          <h2>Theatre producing should work better.</h2>
+          <h2>Theatre production should work better.</h2>
           <p>
-            Making Theatre Anti-Racist is a research and engagement project asking how theatre producing can work better
+            Making Theatre Antiracist is a research and engagement project asking how theatre production can work better
             for racially minoritised artists and workers in Britain.
           </p>
         </div>
@@ -69,17 +69,17 @@ export default function Home() {
               also being supported by state of the [art].
             </p>
             <p>
-              The survey has been designed by Munotida Chinyanga and Tom Six, with advisory input from the
+              The survey has been designed by Munotida Chinyanga and Tom Six, with input from the
               project&apos;s advisory group.
             </p>
             <p>
               Theatre often talks about representation, access and inclusion. This project is also interested in
-              producing structures: how work is made, who holds power, who is supported, who is protected, who gets paid,
+              production structures: how work is made, who holds power, who is supported, who is protected, who gets paid,
               and who is able to keep working.
             </p>
             <p>
-              The aim is to gather evidence that can support practical recommendations for making theatre producing more
-              meaningfully anti-racist.
+              The aim is to gather evidence that can support practical recommendations for making theatre production more
+              meaningfully antiracist.
             </p>
             <div className="button-row">
               <Link className="button dark" href="/survey">
@@ -121,8 +121,8 @@ export default function Home() {
           <h2>Complete the Survey</h2>
           <div>
             <p>
-              The survey asks about you, your working life, your experiences of racism, and your experiences of EDI,
-              equality, diversity and inclusion, and anti-racism.
+              The survey asks about you, your working life, your experiences of racism, your experiences of EDI
+              (equality, diversity and inclusion), and antiracism.
             </p>
             <p>There are no compulsory questions. You can skip any question.</p>
             <p>
@@ -153,13 +153,13 @@ export default function Home() {
           </div>
           <div>
             <p className="large-copy">A live event series for racially minoritised theatre workers.</p>
-            <p>Crash/Out is the live events strand of the Making Theatre Anti-Racist project.</p>
+            <p>Crash/Out is the live events strand of the Making Theatre Antiracist project.</p>
             <p>
               Part symposium, part conversation, part resource-building room, Crash/Out brings racially minoritised
-              theatre workers together to think about what making theatre anti-racist might require in practice.
+              theatre workers together to think about what making theatre antiracist might require in practice.
             </p>
             <p>
-              Each event will invite speakers to respond to a topic connected to race, power, theatre and producing.
+              Each event will invite speakers to respond to a topic connected to race, power, theatre and production.
               There will also be time to eat, talk, complete the survey privately, and contribute to thinking around
               future resources for the sector.
             </p>
@@ -231,7 +231,7 @@ export default function Home() {
 
       <section className="cta-band">
         <p>Tired of being surveyed? Same. Well hopefully this will be the last time.</p>
-        <h2>Complete the Making Theatre Anti-Racist survey.</h2>
+        <h2>Complete the Making Theatre Antiracist survey.</h2>
         <Link className="button dark" href="/survey">
           Complete the Survey
         </Link>

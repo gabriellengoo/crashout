@@ -46,11 +46,11 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
   return (
     <>
       <header className={hideHeader ? 'site-header hidden-header' : 'site-header'}>
-        <Link className="brand" href="/" aria-label="Making Theatre Anti-Racist home">
+        <Link className="brand" href="/" aria-label="Making Theatre Antiracist home">
           <span className="brand-title">
             <span>Making</span>
             <span>Theatre</span>
-            <span>Anti-Racist</span>
+            <span>Antiracist</span>
           </span>
         </Link>
         <button
@@ -122,7 +122,7 @@ export default function Layout({ children, bare = false, hideHeader = false }) {
           <PartnerLogos compact />
         </div>
         <div className="footer-main">
-          <h2>Making Theatre Anti-Racist</h2>
+          <h2>Making Theatre Antiracist</h2>
           <p>Led by the Royal Central School of Speech and Drama and Rafia Hussain Productions.</p>
           <p>Supported by Arts Council England and the Arts and Humanities Research Council.</p>
           <p>Outreach supported by state of the [art].</p>

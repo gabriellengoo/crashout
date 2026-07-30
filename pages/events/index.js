@@ -13,13 +13,13 @@ export default function EventsPage() {
         <div className="split">
           <h2>Crash/Out</h2>
           <div>
-            <p>Crash/Out is the live events strand of the Making Theatre Anti-Racist project.</p>
+            <p>Crash/Out is the live events strand of the Making Theatre Antiracist project.</p>
             <p>
               Part symposium, part conversation, part resource-building room, Crash/Out brings racially minoritised
-              theatre workers together to think about what making theatre anti-racist might require in practice.
+              theatre workers together to think about what making theatre antiracist might require in practice.
             </p>
             <p>
-              Each event will invite speakers to respond to a topic connected to race, power, theatre and producing.
+              Each event will invite speakers to respond to a topic connected to race, power, theatre and production.
               There will also be time to eat, talk, complete the survey privately, and contribute to thinking around
               future resources for the sector.
             </p>

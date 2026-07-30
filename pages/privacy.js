@@ -7,12 +7,12 @@ export default function PrivacyPage() {
         <h1>Privacy and Consent</h1>
         <p>Taking part in the survey is voluntary. You can skip any question.</p>
         <p>
-          Survey responses will be used to help the project team understand how theatre producing can be made more
-          effectively anti-racist.
+          Survey responses will be used to help the project team understand how theatre production can be made more
+          effectively antiracist.
         </p>
         <p>
-          The survey may ask about racial identity, gender, working life, experiences of racism, experiences of EDI and
-          anti-racism, and views on change in the theatre sector.
+          The survey may ask about racial identity, gender, working life, experiences of racism, experiences of EDI
+          (equality, diversity and inclusion), antiracism, and views on change in the theatre sector.
         </p>
         <p>Any information that could identify you will not be shared publicly.</p>
         <p>
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           have agreed to.
         </p>
         <p>
-          Crash/Out events are part of the wider engagement around the Making Theatre Anti-Racist project. Attendance is
+          Crash/Out events are part of the wider engagement around the Making Theatre Antiracist project. Attendance is
           voluntary and you do not have to complete the survey in order to attend.
         </p>
         <p>

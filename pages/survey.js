@@ -204,9 +204,9 @@ export default function SurveyPage() {
         <ProgressBar current={currentStep + 1} total={visibleScreens.length} />
           <div className={currentSlide.variant === 'survey-intro' ? 'survey-shell survey-shell-intro' : 'survey-shell'}>
           <p className="survey-brand">
-            <span>Making Theatre Anti-Racist</span>
+            <span>Making Theatre Antiracist</span>
             <span>Estimated time: 10–15 minutes</span>
-            {currentSlide.section && currentSlide.section !== 'Making Theatre Anti-Racist' ? (
+            {currentSlide.section && currentSlide.section !== 'Making Theatre Antiracist' ? (
               <em>{currentSlide.section}</em>
             ) : null}
           </p>

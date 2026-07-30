@@ -8,7 +8,7 @@ export default function MissedConference() {
         <p className="eyebrow">Crash/Out</p>
         <h1>Missed the conference?</h1>
         <p>
-          You can still take part. The Making Theatre Anti-Racist survey is open to racially minoritised theatre workers
+          You can still take part. The Making Theatre Antiracist survey is open to racially minoritised theatre workers
           in Britain, whether or not you attended an event.
         </p>
         <div className="button-row">
